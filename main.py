@@ -1,6 +1,4 @@
-
-import time as t
-start = t.time()
-import operations as op
-file = op.File()
-# hello world
+a=[(9,0),(8,4)]
+b=[]
+if (a):
+    print(a)

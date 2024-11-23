@@ -7,3 +7,4 @@ def SizeHelper(Size : int) -> None:
 def Is_subsequence(Sub: str,Main: str) -> None:
     it=iter(Main)
     return all(item in it for item in Sub)
+# import time 0.072126
