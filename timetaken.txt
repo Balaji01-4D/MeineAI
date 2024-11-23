@@ -1,0 +1,9 @@
+import time 0.063103
+import time 0.066221
+import time 0.059979
+import time 0.047774
+import time 0.048064
+import time 0.067642
+import time 0.081116
+import time 0.062092
+import time 0.072126
