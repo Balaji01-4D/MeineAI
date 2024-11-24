@@ -34,11 +34,12 @@ while True:
             for ent in doc.ents:
                 print(f" - {ent.text} ({ent.label_})")
                 CDict[ent.label_] = ent.text
-            print(CDict)
+            # print(CDict)
             print(CDict['Action'],'delete')
             if (CDict['Action'] == "delete"):
-               print("ldasfj")
                file.Delete(CDict['FIle_FolderName'])
+            elif (CDict['Action'] == "rename"):
+                        file.Delete(CDict['FIle_FolderName'])
 
         
     
