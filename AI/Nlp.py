@@ -22,7 +22,7 @@ def create_ner_model(model_name, labels):
     print(f"Model '{model_name}' created and saved at {model_path}.")
 
 # Define the labels from your dataset
-labels = ["FIle_FolderName", "Action", "New_Name", "Destination"]
+labels = ["FIle_FolderName", "Action", "New_Name", "Destination","Etc"]
 
 # Create the model
-create_ner_model("MeineAI", labels)
+create_ner_model("summaMeineAI", labels)
