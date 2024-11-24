@@ -1,11 +1,18 @@
+import time
+a=time.time()
+print(f'{a-0.0000:.2f}')
 import re
 import os
 import spacy
-from operations.file import File
+import Actions as op
+file = op.File()
+nlp = spacy.load('/home/balaji/MeineAI/summaMeineAI')
+b=time.time()
+print(f"{b-a:.2f}")
 
-nlp = spacy.load('/home/balaji/MeineAI/MeineAI')
 while True:
     Command: str = input(">>> ")
+    b=time.time()
     try:
     
         if (re.fullmatch(r"[0-9+\-*/%(). ]+",Command)):
@@ -28,10 +35,18 @@ while True:
                 print(f" - {ent.text} ({ent.label_})")
                 CDict[ent.label_] = ent.text
             print(CDict)
-            # if (CDict['Action'] == 'delete'):
-            #     File.Delete(CDict['File_FolderName'])
+            print(CDict['Action'],'delete')
+            if (CDict['Action'] == "delete"):
+               print("ldasfj")
+               file.Delete(CDict['FIle_FolderName'])
 
         
     
     except Exception as e:
-        print(e)
+
+        print("error: ",e)
+
+    c = time.time()
+    print(f"{c-b:.2f}")
+    b=c
+    

@@ -17,6 +17,8 @@ class File:
                 FileName = os.path.join(Location,FileName)
             os.remove(FileName)
             print("File Moved Successfully")
+        except (FileNotFoundError,FileExistsError) :
+            print("File Not In Directory")
         except Exception as e:
             print("ERROR",e)
 
