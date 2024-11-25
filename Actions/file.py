@@ -1,6 +1,7 @@
 import os
 import shutil as sl
 import subprocess as sp
+from pathlib import Path
 
 class File:
 
@@ -11,25 +12,23 @@ class File:
         except Exception as e:
             print(e)
     
-    def Delete(self,FileName:str,Location:str='.') -> None:
+    def Delete(self,FileName:Path) -> None:
         try:
-            if (Location!= None):
-                FileName = os.path.join(Location,FileName)
-            os.remove(FileName)
-            print("File Moved Successfully")
+            FileName.unlink()
+            print(f"{FileName.name} Moved Successfully")
         except (FileNotFoundError,FileExistsError) :
-            print("File Not In Directory")
+            print(f"{FileName.name} Not In Directory")
         except Exception as e:
             print("ERROR",e)
 
-    def Rename(self,OldName:str,NewName:str) -> None:
+    def Rename(self,OldName:Path,NewName:Path) -> None:
         try:         
             os.rename(OldName,NewName)
-            print("Rename Successfully")
+            print("Renamed Successfully")
         except Exception as e:
             print(e)
     
-    def Copy(self,Source:str,Destination:str) -> None:
+    def Copy(self,Source:Path,Destination:Path) -> None:
         '''
         it is used to copy the file 
         '''
@@ -39,25 +38,26 @@ class File:
         except Exception as e:
             print(e)
     
-    def CreateFile(self,Name:str,Location:str=".") -> None:
+    def CreateFile(self,Name:Path,Location:str=".") -> None:
         Name = os.path.join(Location,Name)
         os.system("touch "+Name)                                # Linux command
         print("File Created Successfully")
     
-    def ShowContent(self,FileName:str) -> None:
+    def ShowContent(self,FileName:Path) -> None:
         try:
             with open(FileName,'r') as file:
                 print(file.read())
         except Exception as e:
             print(e)
 
-    def ClearContent(self,FileName:str) -> None:
+    def ClearContent(self,FileName:Path) -> None:
         f=open(FileName,'w')
-        print("Content Cleared !")
+        f.close()
+        print(f"{FileName.name} Content is Cleared")
 
 
 
-    def FileSize(self,FileName:str='.') -> None:
+    def FileSize(self,FileName:Path='.') -> None:
         try:
             size=sp.run(['du','-sh',FileName],text=True,capture_output=True)
             print(size.stdout)

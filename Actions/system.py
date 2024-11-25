@@ -7,7 +7,7 @@ from .other import SizeHelper
 
 class System:
 
-    def Time() -> None :
+    def Time(self) -> None :
         print(dt.datetime.now())
     
     def DiskSpace(self,Path: str ='/') -> None: 
@@ -22,7 +22,6 @@ class System:
     def CD(self,Path: str) -> None:
         try:
             os.chdir(Path)
-            self.CWD()
         except Exception as e:
             print(e)
     

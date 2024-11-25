@@ -72,5 +72,7 @@ class Search:
                 print(f"Text Found @ {line_num} Line -> {paths.replace('./',os.getcwd()+'/')}")
         else:
             print("Text Not Found")
-s=Search()
-s.TextFinderInFile('import time 0.072126','..')
+
+
+s = Search()
+s.TextFinderFile('delete')

@@ -1,0 +1,13 @@
+copy
+clear
+list
+show
+change
+cd
+rename
+extract
+create
+search
+move
+compress
+delete
