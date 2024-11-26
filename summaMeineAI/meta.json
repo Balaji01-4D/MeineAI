@@ -20,8 +20,12 @@
     "ner":[
       "Action",
       "Destination",
-      "FIle_FolderName",
-      "New_Name"
+      "File_FolderName",
+      "File_List",
+      "NewName",
+      "New_Name",
+      "Path",
+      "Text"
     ]
   },
   "pipeline":[
