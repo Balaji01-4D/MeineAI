@@ -1,27 +1,28 @@
 import shutil as sl
 from pathlib import Path
 
+# from Actions import other
 
-from other import TerminalDimensions as TD
 
 class Folder:
 
-    def Create(self,FolderName: Path) -> None:
-        if (FolderName.exists()):
-            print(f"{FolderName.name} Aleady in {FolderName.resolve().parent.name}")
+    def Create(self,FolderName: Path,Destination:Path = Path('.')) -> None:
+        Destination = Destination / FolderName
+        if (Destination.exists()):
+            print(f"{Destination.name} Aleady in {Destination.resolve().parent.name}")
         else:
             try:
-                FolderName.mkdir()
-                print(f"{FolderName.name} Created Successfully")
+                Destination.mkdir()
+                print(f"{Destination.name} Created Successfully")
             except:
-                print("Error In Creating File")
+                print(f"Error In Creating Folder {Destination.name}")
     
 
     def Show(self,FolderName: Path='.') -> None:
         if (not FolderName.is_dir()):
             print(f"{FolderName.name} Is File")
             return
-        Width = TD()
+        Width = sl.get_terminal_size().columns
         name_width = max(Width//2,20)
         type_width = Width - name_width - 5
         print(f"{'NAME':<{name_width}}  {'TYPE':<{type_width}}")
@@ -94,6 +95,3 @@ class Folder:
         
 
 
-f = Folder()
-a = Path('hellojdsidsa')
-b = Path('hwll')

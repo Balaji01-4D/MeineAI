@@ -4,137 +4,239 @@ print(f'{a-0.0000:.2f}')
 import re
 import os
 import spacy
-import pathlib as Path
+from pathlib import Path
 
 
 import Actions as op
+import Actions.Myrequest as Req
+
+
 nlp = spacy.load('summaMeineAI')
-# nlp.add_pipe(custom_entity_filter, last=True)
 b=time.time()
 
-File = op.File()
-Dir = op.Folder()
-search = op.Search()
-Sys = op.System()
+FILE = op.File()
+DIR = op.Folder()
+SEARCH = op.Search()
+SYS = op.System()
 
 print(f"{b-a:.2f}")
 
-while True:
-    Command: str = input(">>> ")
-    b=time.time()
-    try:
-    
-        if (re.fullmatch(r"[0-9+\-*/%(). ]+",Command)):
-            print(eval(Command))
 
-        elif bool(re.search(r"\b[sS]hell\b",Command)):
-            sys:str = re.sub(r"\b[sS]hell\b","",Command)
-            print("system command",sys)
-            os.system(sys)
-
-        else :
-            doc = nlp(Command)
-            CDict: dict = {'FIle_FolderName':'.','Destination':'.'}
-            print(f"Input Text: {Command}")
-            print("Entities Detected:")
-            for ent in doc.ents:
-                print(f" - {ent.text} ({ent.label_})")
-                CDict[ent.label_] = ent.text
-
-            Action:str = CDict['Action']
-
-
-            Source = Path.Path(CDict['FIle_FolderName'])
-            
-
-            if (Action.lower() == "delete"):                    # DELETE
-                if Source.is_file():
-                    File.Delete(Source)
-                
-                else :
-                   Dir.Delete(Source)
-                   
-                   
-            elif (Action.lower() == "rename"):                 # RENAME
-                NewName = Path.Path(CDict['New_Name'])
-
-                if Source.is_file():
-                    File.Rename(Source,NewName)
-                
-                else :
-                   Dir.Rename(Source,NewName)
-            
-            elif(Action.lower() == 'copy'):                    # COPY
-                Des = Path.Path(CDict['Destination'])
-
-                if Source.is_file():
-                    File.copy(Source,Des)
-                
-                else :
-                   Dir.Copy(Source,Des)
-            
-            elif (Action.lower() == 'move'):                   # MOVE
-                Des = Path.Path(CDict['Destination'])
-
-                if Source.is_file():
-                    File.Move(Source,Des)
-                
-                else :
-                   Dir.Move(Source,Des)
-            
-            elif (Action.lower() == 'create'):                        # CREATE
-                Lowercommand: str = Command.lower()
-                if ('dir' in Lowercommand or 'folder' in Lowercommand):
-                    Source.mkdir()
-                    print(f"{Source.name} Directory Created")
-                    
-                else:
-                    Source.touch()
-                    print(f"{Source.name} File Created")
-            
-            elif (Action.lower() == 'clear'):                       # CLEAR CONTENT
-                File.ClearContent(Source)
-            
-            elif (Action.lower() == 'show'):                        # SHOW 
-                Lowercommand: str = Command.lower()
-                if ('content' in Lowercommand or Source.is_file()):
-                    File.ShowContent(Source)
-                else:
-                    Dir.Show(Source)
-            
-            elif (Action.lower() == 'ch'):                          # CD 
-                Sys.CD(Source)
-            
-
-            elif (Action.lower() == 'cwd' or Action.lower() == 'pwd'):      # CWD
-                Sys.CWD()
-            
-            elif ('space' in Action.lower() or 'disk' in Action.lower()):    # DISK SPACE
-                Sys.DiskSpace(Source)
-
-            elif (Action.lower() in 'time'):                        # TIME
-                Sys.Time()
-
-
-            elif (Action.lower() == 'search'):
-                Des = Path.Path(CDict['Destination'])
-                if (Source.is_dir()):
-                    search.SearchFile(CDict['Text'],Source)
-                
-                    
-            
-
-
-
-
-                
+def Cli():
+    while True:
+        Command: str = input(">>> ")
+        b=time.time()
+        try:
         
-    
-    except Exception as e:
+            if (re.fullmatch(r"[0-9+\-*/%(). ]+",Command)):
+                print(eval(Command))
 
-        print("error: ",e)
+            elif bool(re.search(r"\b[sS]hell\b",Command)):
+                sys:str = re.sub(r"\b[sS]hell\b","",Command)
+                print("system command",sys)
+                os.system(sys)
 
-    c = time.time()
-    print(f"{c-b:.2f}")
-    b=c
+            else :
+                doc = nlp(Command)
+                CDict: dict = {'FIle_FolderName':'.','Destination':'.'}
+                print(f"Input Text: {Command}")
+                print("Entities Detected:")
+                for ent in doc.ents:
+                    print(f" - {ent.text} ({ent.label_})")
+                    CDict[ent.label_] = ent.text
+                Labels:list = ['ACTION','FILE','FOLDER','NEWNAME','DESTINATION','ETC']
+                
+                Action:str = CDict['ACTION']
+                Action = Action.lower()
+
+                
+
+                if (Action == "delete"):
+                    Delete(Action,CDict)
+                    
+                elif (Action == "rename"):                 # RENAME
+                    Rename(Action,CDict)
+
+                elif(Action == 'copy'):                    # COPY
+                    Copy(Action,CDict)
+                
+                elif(Action == 'move'): # COPY
+                    Move(Action,CDict)
+                
+                elif (Action == 'create'):                        # CREATE
+                    Create(Action,CDict)               
+                
+                elif (Action == 'clear'):                       # CLEAR CONTE
+                    Clear_content(Action,CDict)
+                
+                elif (Action == 'show content'):                        # SHOW '
+                    Show_content(Action,CDict)
+                
+                elif ('cd' in Action or 'change directory' in Action): 
+                    Cd(Action,CDict) 
+
+                elif (Action == 'cwd' or Action == 'pwd'):      # CWD
+                    print(os.getcwd())
+                
+                elif ('space' in Action or 'disk' in Action):    # DISK SPACE
+                    Disk_space(CDict)
+
+                elif (Action in 'time'):                        # TIME
+                    SYS.Time()
+
+                elif (Action == 'search text'):
+                    Search_txt(Action,CDict)
+            
+                elif (Action == 'search file'):
+                    Search_file(Action,CDict)
+
+                elif (Action == 'search folder'):
+                    Search_folder(Action,CDict)
+        
+        except Exception as e:
+
+            print("error: ",e)
+
+
+def Clear_content(Action,CDict):      
+    if (CDict.__contains__('FILE')):
+        FileName = Path(CDict['FILE'])
+        FILE.ClearContent(FileName)
+    else :
+        Req.GetFile(Action)
+
+def Create(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        FileName: Path = Path(CDict['FILE'])
+        if (CDict.__contains__('FOLDER')):
+            FILE.MakeFile(Path,CDict['FOLDER'])
+        else:
+            FILE.MakeFile(Path)
+    elif (CDict.__contains__('FOLDER')):
+        FolderName: Path = Path(CDict['FOLDER'])
+        if (CDict.__contains__('DESTINATION')):
+            Des: Path = Path(CDict['DESTINATION'])
+            DIR.Create(FolderName,Des)
+        else:
+            DIR.Create(FolderName)
+    else :
+        Req.GetName(Action)
+
+def Move(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        FileName: Path = Path(CDict['FILE'])
+        if (CDict.__contains__('DESTINATION')):
+            Des: Path = Path(CDict['DESTINATION'])
+            FILE.Move(FileName,Des)
+        else:
+            Req.GetDes(Action)
+    elif (CDict.__contains__('FOLDER')):
+        FolderName: Path = Path(CDict['FOLDER'])
+        if (CDict.__contains__('DESTINATION')):
+            Des: Path = Path(CDict['DESTINATION'])
+            DIR.Move(FolderName,Des)
+        else:
+            Req.GetDes(Action)
+    else :
+        Req.GetName(Action)
+
+def Show_content(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        FileName = Path(CDict['FILE'])
+        FILE.ShowContent(FileName)
+    else :
+        Req.GetFile(Action)
+
+def Copy(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        FileName: Path = Path(CDict['FILE'])
+        if (CDict.__contains__('DESTINATION')):
+            Des: Path = Path(CDict['DESTINATION'])
+            FILE.Copy(FileName,Des)
+        else:
+            Req.GetDes  (Action)
+    elif (CDict.__contains__('FOLDER')):
+        FolderName: Path = Path(CDict['FOLDER'])
+        if (CDict.__contains__('DESTINATION')):
+            Des: Path = Path(CDict['DESTINATION'])
+            FILE.Copy(FolderName,Des)
+        else:
+            Req.GetDes(Action)
+    else :
+        Req.GetName(Action)
+        
+def Rename(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        FileName: Path = Path(CDict['FILE'])
+        if (CDict.__contains__('NEWNAME')):
+            Des: Path = Path(CDict['NEWNAME'])
+            FILE.Rename(FileName,Des)
+        else:
+            Req.GetNewName(Action)
+    elif (CDict.__contains__('FOLDER')):
+        FolderName: Path = Path(CDict['FOLDER'])
+        if (CDict.__contains__('NEWNAME')):
+            Des: Path = Path(CDict['NEWNAME'])
+            DIR.Rename(FolderName,Des)
+        else:
+            Req.GetNewName(Action)
+    else :
+        Req.GetName(Action)
+
+def Delete(Action,CDict):
+    if (CDict.__contains__('FILE')):
+        Filename: Path = Path(CDict['FILE'])
+        FILE.Delete(Filename)
+    elif (CDict.__contains__('FOLDER')):
+        FolderName: Path = Path(CDict['FOLDER'])
+        DIR.Delete(FolderName)
+    else :
+        Req.GetName(Action)
+
+def Cd(Action,CDict):
+    if (CDict.__contains__('FOLDER')):
+        FolderName = Path(CDict['FOLDER'])
+        SYS.CD(FolderName)
+    else:
+        Req.GetDes(Action)
+
+def Disk_space(CDict):
+    if (CDict.__contains__('FOLDER')):
+        SYS.DiskSpace(Path(CDict['FOLDER']))
+    else :
+        SYS.DiskSpace()
+
+def Search_txt(Action,CDict):
+    if (CDict.__contains__('TEXT')):
+        Text = CDict['TEXT']
+        if (CDict.__contains__('FOLDER')):
+            SEARCH.TextFinderFile(Text,CDict['FOLDER'])
+        else :
+            SEARCH.TextFinderFile(Text)
+    else:
+        Req.GetTxt(Action)
+
+def Search_file(Action: str, CDict: dict):
+    if (CDict.__contains__('TEXT')):
+        Text = CDict['TEXT']
+        if (CDict.__contains__('FOLDER')):
+            SEARCH.SearchFile(Text,CDict['FOLDER'])
+        else :
+            SEARCH.SearchFile(Text)
+    else:
+        Req.GetTxt(Action)
+
+def Search_folder(Action: str , CDict: dict):
+    if (CDict.__contains__('TEXT')):
+        Text = CDict['TEXT']
+        if(CDict.__contains__('FOLDER')):
+            SEARCH.SearchFolder(Text,CDict['FOLDER'])
+        else :
+             SEARCH.SearchFolder(Text)
+    else:
+        Req.GetTxt(Action)
     
+
+
+c = time.time()
+print(f"{c-a:.2f}")

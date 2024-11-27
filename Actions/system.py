@@ -1,34 +1,55 @@
 import os
 import datetime as dt
 import shutil as sl
-import subprocess as sp
+from pathlib import Path
+from time import ctime
 
-from .other import SizeHelper
 
+from Actions import other
 class System:
 
     def Time(self) -> None :
         print(dt.datetime.now())
     
-    def DiskSpace(self,Path: str ='/') -> None: 
-        total , used , free = sl.disk_usage(Path)
-        print("Total :",SizeHelper(total))
-        print("Used  :",SizeHelper(used))
-        print("Free  :",SizeHelper(free))
+    def DiskSpace(self, Destination: Path =Path('/')) -> None: 
+        total , used , free = sl.disk_usage(Destination)
+        print("Total :",other.SizeHelper(total))
+        print("Used  :",other.SizeHelper(used))
+        print("Free  :",other.SizeHelper(free))
     
-    def CWD(self)->None:
-        print(os.getcwd())
+    def GetCurrentDir(self) -> None:
+        path:Path = Path('.')
+        print(f"{path.resolve()}")
 
-    def CD(self,Path: str) -> None:
-        try:
-            os.chdir(Path)
-        except Exception as e:
-            print(e)
-    
-    def LS(self,path: str='.') -> None:
-        try:
-            sp.run(['ls','.'])
-        except Exception as e:
-            print(e)
+
+    def CD(self, Destination: Path) -> None:
+        if (Destination.exists() and Destination.is_dir()):
+            try:
+                os.chdir(Path)
+            except Exception:
+                print(f"Can't Change directory to {Destination.name}")
+        elif (Destination.is_file()):
+            print(f"Cant Change {Destination.name} Is File.")
+        else:
+            print(f"{Destination.name} Not Found.")
+    def Info(self, Name : Path) -> None:
+        if (not Name.exists()):
+            print(f"{Name.name} Not Found")
+            return
+        size = other.SizeHelper(Name.stat().st_size) 
+        stats = Name.stat()
+        info : dict ={
+            'Name' : Name.name,
+            'Path' : str(Name.resolve()),
+            'size' : size,
+            'Type' : "File" if (not Name.is_dir()) else "Directory",
+            'Created' : ctime(stats.st_ctime),
+            'Last Modified' : ctime(stats.st_mtime),
+            'Last Accessed' : ctime(stats.st_atime),
+            'Mode' : stats.st_mode
+        }
+        for key,value in info.items():
+            print(f"{key} : {value}")
+            
 
 
