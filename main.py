@@ -8,7 +8,8 @@ import pathlib as Path
 
 
 import Actions as op
-nlp = spacy.load('./MeineAI/summaMeineAI')
+nlp = spacy.load('summaMeineAI')
+# nlp.add_pipe(custom_entity_filter, last=True)
 b=time.time()
 
 File = op.File()
