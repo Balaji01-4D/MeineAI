@@ -1,8 +1,9 @@
 import subprocess as sp
 import os
+
 class Search:
 
-    def SearchFile(self,FileName:str,Path:str='.') -> None:
+    def SearchFile(self, FileName: str, Path: str='.') -> None:
         def SearchHelper(FileName: str,Path: str) -> str|None:
             l:list[str]=[]
             try:
@@ -10,8 +11,8 @@ class Search:
                     if (FileName in files):
                         l.append(os.path.join(root,FileName))
                 return l
-            except Exception as e:
-                print(e)
+            except Exception:
+                print("Error occurs searching the file")
 
         Result = SearchHelper(FileName,Path)
         if (Result):
@@ -28,8 +29,8 @@ class Search:
                     if (FolderName in dirs):
                         l.append(os.path.join(root,FolderName))
                 return l
-            except Exception as e:
-                print(e)
+            except Exception:
+                print("Error occur in searching Directory")
 
         Result = SearchHelper(FolderName,Path)
         if (Result):
@@ -73,6 +74,3 @@ class Search:
         else:
             print("Text Not Found")
 
-
-s = Search()
-s.TextFinderFile('delete')
