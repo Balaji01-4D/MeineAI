@@ -87,6 +87,9 @@ def WHatAction(Action: str, CDict: dict[str]) -> None:
 
     elif (Action == 'info' or 'details'):
         Info(CDict)
+    
+    elif (Action == 'ip'):
+        SYS.IP()
 
 
 def Cli() -> None | str | dict:
@@ -270,16 +273,16 @@ def Search_folder(Action: str , CDict: dict) -> None:
              SEARCH.SearchFolder(Text)
     else:
         Req.GetTxt(Action)
-    
-
-
-
 
 def main():
 
     Action,cdict = Cli()
 
     WHatAction(Action,cdict)
+
+
+SYS.IP()
+
 
 c = time.time()
 print(f"End time {c-b:.5f}")
