@@ -11,13 +11,14 @@ import Actions as op
 import Actions.Myrequest as Req
 
 
-nlp = spacy.load('summaMeineAI')
+nlp = spacy.load('en_core_web_sm')
 b=time.time()
 
 FILE = op.File()
 DIR = op.Folder()
 SEARCH = op.Search()
 SYS = op.System()
+ZIP = op.Zip
 
 print(f"{b-a:.2f}")
 
@@ -38,14 +39,11 @@ def Cli():
 
             else :
                 doc = nlp(Command)
-                CDict: dict = {'FIle_FolderName':'.','Destination':'.'}
-                print(f"Input Text: {Command}")
-                print("Entities Detected:")
+                Labels , Texts = [],[]
                 for ent in doc.ents:
-                    print(f" - {ent.text} ({ent.label_})")
-                    CDict[ent.label_] = ent.text
-                Labels:list = ['ACTION','FILE','FOLDER','NEWNAME','DESTINATION','ETC']
-                
+                    Labels.append(ent.label_)
+                    Texts.append(ent.text)
+                CDict = op.other.CMDMapper(Labels,Texts)
                 Action:str = CDict['ACTION']
                 Action = Action.lower()
 
@@ -72,13 +70,13 @@ def Cli():
                 elif (Action == 'show content'):                        # SHOW '
                     Show_content(Action,CDict)
                 
-                elif ('cd' in Action or 'change directory' in Action): 
+                elif ('cd'  or 'change directory' in Action): 
                     Cd(Action,CDict) 
 
-                elif (Action == 'cwd' or Action == 'pwd'):      # CWD
+                elif (Action == 'cwd' or  'pwd'):      # CWD
                     print(os.getcwd())
                 
-                elif ('space' in Action or 'disk' in Action):    # DISK SPACE
+                elif ('space'  or 'disk' in Action):    # DISK SPACE
                     Disk_space(CDict)
 
                 elif (Action in 'time'):                        # TIME
@@ -92,11 +90,45 @@ def Cli():
 
                 elif (Action == 'search folder'):
                     Search_folder(Action,CDict)
+
+                elif (Action == 'compress' or 'zip'):
+                    Compress(Action,CDict)
+                
+                elif (Action == 'extract' or 'decompress'):
+                    Extract(Action,CDict)
+                
+                elif (Action == 'info' or 'details'):
+                    Info(CDict)
+                
+
+
         
         except Exception as e:
 
             print("error: ",e)
 
+
+def Info(CDict: dict):
+    if (CDict.__contains__('FOLDER')):
+        SYS.Info(CDict['FOLDER'])
+    else :
+        Req.GetName('Show Details')
+
+def Extract(Action: str,CDict: dict):
+    if (CDict.__contains__('FILE')):
+        ZIP.Extract(Path(CDict['FILE']))
+    elif (CDict.__contains__('FOLDER')):
+        ZIP.Extract(Path(CDict['FOLDER']))
+    else :
+        Req.GetName(Action)
+
+def Compress(Action: str, CDict: dict):
+    if (CDict.__contains__('FILE')):
+        ZIP.Compress(Path(CDict['FILE']))
+    elif (CDict.__contains__('FOLDER')):
+        ZIP.Compress(Path(CDict['FOLDER']))
+    else :
+        Req.GetName(Action)
 
 def Clear_content(Action,CDict):      
     if (CDict.__contains__('FILE')):
@@ -125,8 +157,8 @@ def Create(Action,CDict):
 def Move(Action,CDict):
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
-        if (CDict.__contains__('DESTINATION')):
-            Des: Path = Path(CDict['DESTINATION'])
+        if (CDict.__contains__('FOLDER')):
+            Des: Path = Path(CDict['FOLDER'])
             FILE.Move(FileName,Des)
         else:
             Req.GetDes(Action)
@@ -150,8 +182,8 @@ def Show_content(Action,CDict):
 def Copy(Action,CDict):
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
-        if (CDict.__contains__('DESTINATION')):
-            Des: Path = Path(CDict['DESTINATION'])
+        if (CDict.__contains__('FOLDER')):
+            Des: Path = Path(CDict['FOLDER'])
             FILE.Copy(FileName,Des)
         else:
             Req.GetDes  (Action)
@@ -238,5 +270,8 @@ def Search_folder(Action: str , CDict: dict):
     
 
 
+cd = time.time()
+
 c = time.time()
-print(f"{c-a:.2f}")
+print(f"{c-cd:.5f}")
+

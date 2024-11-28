@@ -6,6 +6,10 @@ from pathlib import Path
 class File:
 
     def Move(self, FileName: Path, Destination: Path) -> None:
+        FinalDestination = Destination / Path(FileName.name)
+        if (FinalDestination.exists()):
+            print(f"{Destination.name} Directory Has Already {FileName.name}")
+            return
         if (FileName.exists() and Destination.is_dir()):
             try:
                 sl.move(FileName,Destination)
@@ -30,10 +34,14 @@ class File:
         
 
     def Rename(self, OldName: Path, NewName: Path) -> None:
-        if (OldName.exists() and not NewName.exists()):
-            try :         
+        if (OldName.exists() and not NewName.exists() and not OldName.is_dir()):
+            try :
+                if NewName.suffix == "":
+                    NewName = NewName.with_suffix(OldName.suffix)                         
                 OldName.rename(NewName)
                 print(f"Renamed Successfully {OldName.name} -> {NewName.name}")
+            except PermissionError:
+                print(f"Permission Denied")
             except Exception :
                 print(f"Error In Renaming.")
         elif (not OldName.exists()):
@@ -46,6 +54,8 @@ class File:
             try:
                 sl.copy(Source,Destination)
                 print("Copied Successfully")
+            except PermissionError:
+                print(f"Permission Denied")
             except Exception:
                 print('Error In Copying')
         elif (not Source.exists()):
@@ -67,6 +77,8 @@ class File:
                 with FileName.open() as file:
                     print(file.read())
                     print("End Of The FIle".center(21,"-"))
+            except PermissionError:
+                print(f"Permission Denied")
             except Exception :
                 print(f"Error In Reading The {FileName.name}")
         elif (FileName.exists() and FileName.is_dir()):
@@ -75,14 +87,17 @@ class File:
             print(f"{FileName.name} Not Found")
 
     def ClearContent(self,FileName:Path) -> None:
-        if (FileName.exists() and not FileName.is_dir()):
-            f=open(FileName,'w')
-            f.close()
-            print(f"{FileName.name} Content is Cleared")
-        elif (FileName.is_dir() and FileName.exists()):
-            print(f"{FileName.resolve().name} Is Directory")
-        elif (not FileName.exists()):
-            print(f"{FileName.name} Not Found")
+        try:
+            if (FileName.exists() and not FileName.is_dir()):
+                f=open(FileName,'w')
+                f.close()
+                print(f"{FileName.name} Content is Cleared")
+            elif (FileName.is_dir() and FileName.exists()):
+                print(f"{FileName.resolve().name} Is Directory")
+            elif (not FileName.exists()):
+                print(f"{FileName.name} Not Found")
+        except PermissionError:
+             print(f"Permission Denied")
         
 
 

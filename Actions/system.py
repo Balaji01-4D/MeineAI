@@ -26,6 +26,8 @@ class System:
         if (Destination.exists() and Destination.is_dir()):
             try:
                 os.chdir(Path)
+            except PermissionError:
+                print(f"Permission Denied")            
             except Exception:
                 print(f"Can't Change directory to {Destination.name}")
         elif (Destination.is_file()):

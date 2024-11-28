@@ -14,6 +14,8 @@ class Folder:
             try:
                 Destination.mkdir()
                 print(f"{Destination.name} Created Successfully")
+            except PermissionError:
+                print(f"Permission Denied")
             except:
                 print(f"Error In Creating Folder {Destination.name}")
     
@@ -49,6 +51,8 @@ class Folder:
             try:
                 sl.move(FOlderName,Destination)
                 print(f"{FOlderName.name} Moved Successfully to {Destination.name}.")
+            except PermissionError:
+                print(f"Permission Denied")
             except Exception:
                 print(f"Error Moving File")
         elif (not FOlderName.exists()):
@@ -62,6 +66,8 @@ class Folder:
                 des = Destination / Source.name
                 sl.copytree(Source,des,dirs_exist_ok=True)
                 print(f"{Source.name} Directory Copied Successfully to {Destination.resolve().name} Directory")
+            except PermissionError:
+                print(f"Permission Denied")
             except Exception as e:
                 print('Error In Copying',e)
         elif (not Source.exists()):
@@ -76,6 +82,8 @@ class Folder:
             try :         
                 OldName.rename(NewName)
                 print(f"Renamed Successfully {OldName.name} -> {NewName.name}")
+            except PermissionError:
+                print(f"Permission Denied")                
             except Exception :
                 print(f"Error In Renaming.")
         elif (not OldName.exists()):
@@ -88,6 +96,8 @@ class Folder:
             try:
                 sl.rmtree(FolderName)
                 print(f"{FolderName.name} Deleted Successfully.")
+            except PermissionError:
+                print(f"Permission Denied")                
             except Exception :
                 print(f"Error In Deleting {FolderName.name}")
         else:

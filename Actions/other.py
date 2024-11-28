@@ -11,8 +11,12 @@ def Is_subsequence(Sub: str,Main: str) -> None:
     return all(item in it for item in Sub)
 
 
-
-
-
-    
-    
+def CMDMapper(labels: list[str],text: list[str]):
+    cdict = {}
+    Backup = {'FILE':'NEWNAME','FOLDER':'DESTINATION'}
+    for label,val in zip(labels,text):
+        if (cdict.__contains__(label)):
+            cdict[Backup[label]] = val
+        else :
+            cdict[label] = val
+    return cdict
