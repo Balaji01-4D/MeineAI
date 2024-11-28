@@ -1,29 +1,95 @@
 import time
 a=time.time()
-print(f'{a-0.0000:.2f}')
+from rich.console import Console
 import re
 import os
-import spacy
 from pathlib import Path
 
 
 import Actions as op
 import Actions.Myrequest as Req
 
-
-nlp = spacy.load('en_core_web_sm')
-b=time.time()
-
+CONSOLE = Console()
 FILE = op.File()
 DIR = op.Folder()
 SEARCH = op.Search()
 SYS = op.System()
 ZIP = op.Zip
 
-print(f"{b-a:.2f}")
+a1 = time.time()
+print(f"importing and instance making time {a1-a:.4f}")
+with CONSOLE.status(f"[bold cyan]Loading spaCy model...", spinner='dots'):
+    import spacy
+    nlp = spacy.load('en_core_web_sm') 
+
+b=time.time()
+print(f"modal loading time {b-a1:.2f}")
+def AI(Command: str) -> str | dict[str]:
+    doc = nlp(Command)
+    Labels , Texts = [],[]
+    for ent in doc.ents:
+        Labels.append(ent.label_)
+        Texts.append(ent.text)
+    CDict = op.other.CMDMapper(Labels,Texts)
+    Action:str = CDict['ACTION']
+    Action = Action.lower()
+    return Action,CDict
 
 
-def Cli():
+def WHatAction(Action: str, CDict: dict[str]) -> None:
+    if (Action == "delete"):
+        Delete(Action,CDict)
+        
+    elif (Action == "rename"):                 # RENAME
+        Rename(Action,CDict)
+
+    elif(Action == 'copy'):                    # COPY
+        Copy(Action,CDict)
+
+    elif(Action == 'move'): # COPY
+        Move(Action,CDict)
+
+    elif (Action == 'create'):                        # CREATE
+        Create(Action,CDict)               
+
+    elif (Action == 'clear'):                       # CLEAR CONTE
+        Clear_content(Action,CDict)
+
+    elif (Action == 'show content'):                        # SHOW '
+        Show_content(Action,CDict)
+
+    elif ('cd'  or 'change directory' in Action): 
+        Cd(Action,CDict) 
+
+    elif (Action == 'cwd' or  'pwd'):      # CWD
+        print(os.getcwd())
+
+    elif ('space'  or 'disk' in Action):    # DISK SPACE
+        Disk_space(CDict)
+
+    elif (Action in 'time'):                        # TIME
+        SYS.Time()
+
+    elif (Action == 'search text'):
+        Search_txt(Action,CDict)
+
+    elif (Action == 'search file'):
+        Search_file(Action,CDict)
+
+    elif (Action == 'search folder'):
+        Search_folder(Action,CDict)
+
+    elif (Action == 'compress' or 'zip'):
+        Compress(Action,CDict)
+
+    elif (Action == 'extract' or 'decompress'):
+        Extract(Action,CDict)
+
+    elif (Action == 'info' or 'details'):
+        Info(CDict)
+
+
+def Cli() -> None | str | dict:
     while True:
         Command: str = input(">>> ")
         b=time.time()
@@ -38,83 +104,20 @@ def Cli():
                 os.system(sys)
 
             else :
-                doc = nlp(Command)
-                Labels , Texts = [],[]
-                for ent in doc.ents:
-                    Labels.append(ent.label_)
-                    Texts.append(ent.text)
-                CDict = op.other.CMDMapper(Labels,Texts)
-                Action:str = CDict['ACTION']
-                Action = Action.lower()
+                return AI(Command)
 
-                
-
-                if (Action == "delete"):
-                    Delete(Action,CDict)
-                    
-                elif (Action == "rename"):                 # RENAME
-                    Rename(Action,CDict)
-
-                elif(Action == 'copy'):                    # COPY
-                    Copy(Action,CDict)
-                
-                elif(Action == 'move'): # COPY
-                    Move(Action,CDict)
-                
-                elif (Action == 'create'):                        # CREATE
-                    Create(Action,CDict)               
-                
-                elif (Action == 'clear'):                       # CLEAR CONTE
-                    Clear_content(Action,CDict)
-                
-                elif (Action == 'show content'):                        # SHOW '
-                    Show_content(Action,CDict)
-                
-                elif ('cd'  or 'change directory' in Action): 
-                    Cd(Action,CDict) 
-
-                elif (Action == 'cwd' or  'pwd'):      # CWD
-                    print(os.getcwd())
-                
-                elif ('space'  or 'disk' in Action):    # DISK SPACE
-                    Disk_space(CDict)
-
-                elif (Action in 'time'):                        # TIME
-                    SYS.Time()
-
-                elif (Action == 'search text'):
-                    Search_txt(Action,CDict)
-            
-                elif (Action == 'search file'):
-                    Search_file(Action,CDict)
-
-                elif (Action == 'search folder'):
-                    Search_folder(Action,CDict)
-
-                elif (Action == 'compress' or 'zip'):
-                    Compress(Action,CDict)
-                
-                elif (Action == 'extract' or 'decompress'):
-                    Extract(Action,CDict)
-                
-                elif (Action == 'info' or 'details'):
-                    Info(CDict)
-                
-
-
-        
         except Exception as e:
 
             print("error: ",e)
 
 
-def Info(CDict: dict):
+def Info(CDict: dict) -> None:
     if (CDict.__contains__('FOLDER')):
         SYS.Info(CDict['FOLDER'])
     else :
         Req.GetName('Show Details')
 
-def Extract(Action: str,CDict: dict):
+def Extract(Action: str,CDict: dict) -> None:
     if (CDict.__contains__('FILE')):
         ZIP.Extract(Path(CDict['FILE']))
     elif (CDict.__contains__('FOLDER')):
@@ -122,7 +125,7 @@ def Extract(Action: str,CDict: dict):
     else :
         Req.GetName(Action)
 
-def Compress(Action: str, CDict: dict):
+def Compress(Action: str, CDict: dict) -> None:
     if (CDict.__contains__('FILE')):
         ZIP.Compress(Path(CDict['FILE']))
     elif (CDict.__contains__('FOLDER')):
@@ -130,14 +133,14 @@ def Compress(Action: str, CDict: dict):
     else :
         Req.GetName(Action)
 
-def Clear_content(Action,CDict):      
+def Clear_content(Action: str,CDict: dict[str]) -> None:      
     if (CDict.__contains__('FILE')):
         FileName = Path(CDict['FILE'])
         FILE.ClearContent(FileName)
     else :
         Req.GetFile(Action)
 
-def Create(Action,CDict):
+def Create(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
         if (CDict.__contains__('FOLDER')):
@@ -154,7 +157,7 @@ def Create(Action,CDict):
     else :
         Req.GetName(Action)
 
-def Move(Action,CDict):
+def Move(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
         if (CDict.__contains__('FOLDER')):
@@ -172,14 +175,14 @@ def Move(Action,CDict):
     else :
         Req.GetName(Action)
 
-def Show_content(Action,CDict):
+def Show_content(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         FileName = Path(CDict['FILE'])
         FILE.ShowContent(FileName)
     else :
         Req.GetFile(Action)
 
-def Copy(Action,CDict):
+def Copy(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
         if (CDict.__contains__('FOLDER')):
@@ -197,7 +200,7 @@ def Copy(Action,CDict):
     else :
         Req.GetName(Action)
         
-def Rename(Action,CDict):
+def Rename(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         FileName: Path = Path(CDict['FILE'])
         if (CDict.__contains__('NEWNAME')):
@@ -215,7 +218,7 @@ def Rename(Action,CDict):
     else :
         Req.GetName(Action)
 
-def Delete(Action,CDict):
+def Delete(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FILE')):
         Filename: Path = Path(CDict['FILE'])
         FILE.Delete(Filename)
@@ -225,20 +228,20 @@ def Delete(Action,CDict):
     else :
         Req.GetName(Action)
 
-def Cd(Action,CDict):
+def Cd(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('FOLDER')):
         FolderName = Path(CDict['FOLDER'])
         SYS.CD(FolderName)
     else:
         Req.GetDes(Action)
 
-def Disk_space(CDict):
+def Disk_space(CDict) -> None:
     if (CDict.__contains__('FOLDER')):
         SYS.DiskSpace(Path(CDict['FOLDER']))
     else :
         SYS.DiskSpace()
 
-def Search_txt(Action,CDict):
+def Search_txt(Action: str,CDict: dict[str]) -> None:
     if (CDict.__contains__('TEXT')):
         Text = CDict['TEXT']
         if (CDict.__contains__('FOLDER')):
@@ -248,7 +251,7 @@ def Search_txt(Action,CDict):
     else:
         Req.GetTxt(Action)
 
-def Search_file(Action: str, CDict: dict):
+def Search_file(Action: str, CDict: dict) -> None:
     if (CDict.__contains__('TEXT')):
         Text = CDict['TEXT']
         if (CDict.__contains__('FOLDER')):
@@ -258,7 +261,7 @@ def Search_file(Action: str, CDict: dict):
     else:
         Req.GetTxt(Action)
 
-def Search_folder(Action: str , CDict: dict):
+def Search_folder(Action: str , CDict: dict) -> None:
     if (CDict.__contains__('TEXT')):
         Text = CDict['TEXT']
         if(CDict.__contains__('FOLDER')):
@@ -270,8 +273,13 @@ def Search_folder(Action: str , CDict: dict):
     
 
 
-cd = time.time()
+
+
+def main():
+
+    Action,cdict = Cli()
+
+    WHatAction(Action,cdict)
 
 c = time.time()
-print(f"{c-cd:.5f}")
-
+print(f"End time {c-b:.5f}")
