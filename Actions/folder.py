@@ -1,7 +1,6 @@
 import shutil as sl
 from pathlib import Path
 
-# from Actions import other
 
 
 class Folder:
@@ -33,18 +32,18 @@ class Folder:
             Type: str = ("file" if (not items.is_dir()) else "folder")
             print(f"{str(items):<{name_width}}  {Type:<{type_width}}")
 
-    def RShow(self,FolderName: Path='.') -> None:
-        if (not FolderName.is_dir()):
-            print(f"{FolderName.name} Is File")
+    def RShow(self, FolderName: Path = '.') -> None:
+        if not FolderName.is_dir():
+            print(f"{FolderName.name} is a file")
             return
-        Width = TD()
-        name_width = max(Width//2,20)
-        type_width = Width - name_width - 5
+        width, _ = sl.get_terminal_size()
+        name_width = max(width // 2, 20)
+        type_width = width - name_width - 5
         print(f"{'NAME':<{name_width}}  {'TYPE':<{type_width}}")
-        print("-"*Width)
-        for items in FolderName.rglob("*"):
-            Type: str = ("file" if (not items.is_dir()) else "folder")
-            print(f"{str(items):<{name_width}}  {Type:<{type_width}}")
+        print("-" * width)
+        for item in FolderName.rglob("*"):
+            item_type = "folder" if item.is_dir() else "file"
+            print(f"{str(item):<{name_width}}  {item_type:<{type_width}}")
 
     def Move(self, FOlderName: Path, Destination: Path) -> None:
         if (FOlderName.exists() and Destination.is_dir()):
