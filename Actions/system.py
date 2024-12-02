@@ -75,7 +75,7 @@ class System:
 
     
     def HomeDir(self):
-        print(f"Home Directory :  ",Path.home())
+        console.print(f"Home Directory :  ",Path.home())
 
     def RAMInfo(self):
         memory = psutil.virtual_memory()

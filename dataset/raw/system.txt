@@ -1,0 +1,127 @@
+ram
+my ram
+cpu
+my cpu
+gpu
+my gpu
+system
+sys
+ip
+my ip
+network
+env
+environment variables
+my battery
+battery usage
+bt
+battery
+battery status
+power off
+reboot
+restart
+net
+disk info
+disk usage
+shutdown
+poweroff
+info /home/user/music/song.mp3
+details of /projects/python/code.py
+info /configs/system/config.json
+details of /logs/errors/logfile.txt
+info /documents/ebooks/novel.pdf
+details of /backup/archive/summary.txt
+info /media/photos/vacation.jpg
+details of /downloads/videos/movie.mkv
+info /database/cache/data.db
+details of /temp/logs/debug.log
+info /system/tools/utility.sh
+details of /resources/training/dataset.csv
+info /configs/security/firewall_rules.xml
+details of /games/strategy/map.json
+info /media/albums/song.flac
+details of /users/admin/configs/settings.yml
+
+ram
+my ram
+cpu
+my cpu
+gpu
+my gpu
+system
+sys
+ip
+my ip
+network
+env
+environment variables
+ram
+check ram
+cpu usage
+gpu stats
+system info
+network status
+check ip
+env
+ram
+my ram
+cpu
+my cpu
+gpu
+my gpu
+system
+sys
+ip
+my ip
+network
+env
+environment variables
+my battery
+battery usage
+bt
+battery
+battery status
+power off
+reboot
+restart
+net
+disk info
+disk usage
+shutdown
+poweroff
+go to finance/accounts  
+go to backup/system/logs  
+go to resources/training/data  
+go to documents/ebooks/stories  
+go to desktop/workspace/projects  
+go system/tools/utilities  
+go games/strategy/maps  
+go database/cache/files  
+go cloud/storage/temp  
+go archives/old/reports  
+go pictures/landscape/scenery
+cd documents/reports
+change directory to media/music
+chdir backup/system/logs
+cd to projects/python/scripts
+cd pictures/landscape
+change directory to configs/security
+chdir videos/movies
+cd to datasets/ml/training
+cd archives/old
+change directory to finance/accounts
+chdir media/photos/vacation
+cd to temp/logs/errors
+cd resources/training
+change directory to games/strategy/maps
+chdir users/admin/documents
+cd to configs/network/settings
+cd downloads/books
+change directory to system/tools/utilities
+chdir projects/ai/models
+cd to backup/archive/reports
+cd desktop/workspace
+change directory to database/cache/files
+chdir cloud/backup/images
+cd to documents/ebooks/novels
+
+

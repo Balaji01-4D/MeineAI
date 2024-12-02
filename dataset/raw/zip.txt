@@ -1,0 +1,106 @@
+zip the file report.docx
+z the folder /downloads/images
+compress folder /projects/python
+unzip /backup/archive.zip
+extract /configs/system/settings.json
+uz /temp/logs/debug.log
+zip the file resume.pdf
+z the folder /pictures/landscapes
+compress folder /users/admin/documents
+unzip /media/photos.zip
+extract /projects/sample/code.py
+uz /configs/backup/settings.json
+zip the file summary.txt
+z the folder /documents/ebooks
+compress folder /temp/logs
+unzip /media/films.zip
+extract /projects/demo
+uz /files/notes/outline.docx
+zip the file index.html
+z the folder /docs/tutorials
+compress folder /datasets/research
+unzip /archives/logs.zip
+extract /games/strategy
+uz /movies/action.mp4
+zip the file plan.csv
+z the folder /resources/notes
+compress folder /configs/setup
+unzip /archives/demo.zip
+extract /media/albums
+uz /database/cache/config.db
+zip the file script.py
+z the folder /media/animations
+compress folder /system/settings
+unzip /files/reports.zip
+extract /docs/notes.txt
+uz /logs/errors.log
+zip the file chart.png
+z the folder /finance/accounts
+compress folder /backup/system
+unzip /genres/rpg.zip
+extract /home/user/docs/resume.pdf
+uz /media/films/video.mp4
+zip the file presentation.pptx
+z the folder /downloads/videos
+compress folder /projects/java
+unzip /backup/data.zip
+extract /configs/app/config.zip
+uz /temp/logs/error.zip
+zip the file application.pdf
+z the folder /pictures/portraits
+compress folder /users/admin/downloads
+unzip /media/music.zip
+extract /projects/example/script.py
+uz /configs/restore/settings.zip
+zip the file notes.docx
+z the folder /documents/reports
+compress folder /temp/cache
+unzip /media/books.zip
+z the folder /docs/guides
+compress folder /datasets/analysis
+unzip /archives/backups.zip
+extract /games/racing
+uz /movies/drama.zip
+zip the file data.csv
+z the folder /resources/archives
+compress folder /configs/updates
+unzip /archives/samples.zip
+extract /media/gallery
+uz /database/logs/config.zip
+zip the file index.html
+z the folder /media/slideshows
+compress folder /system/backup
+unzip /files/records.zip
+extract /docs/summary.txt
+uz /logs/warnings.zip
+zip the file infographic.jpg
+z the folder /finance/budgets
+compress folder /backup/userdata
+unzip /genres/adventure.zip
+zip the file report_final.docx
+z the folder /downloads/music
+compress folder /projects/web
+unzip /backup/images.zip
+extract /configs/security/keys.zip
+uz /temp/logs/session.zip
+zip the file overview.doc
+z the folder /pictures/wallpapers
+compress folder /users/admin/reports
+unzip /media/videos.zip
+extract /projects/sample/main.py
+uz /configs/backup/data.zip
+zip the file summary_report.pdf
+z the folder /documents/archives
+compress folder /temp/uploads
+unzip /media/archives.zip
+z the folder /docs/manuals
+compress folder /datasets/experiments
+unzip /archives/logs.zip
+extract /games/board
+uz /movies/comedy.zip
+zip the file tasks.txt
+z the folder /resources/ideas
+compress folder /configs/old
+unzip /archives/backup.zip
+extract /media/photoshoot
+uz /database/settings/config.zip
