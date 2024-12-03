@@ -1,6 +1,6 @@
-# MEINEAI
+# MEINE AI
 
-**MEINEAI** is a OFFLINE NLP based CLI application designed for file and system management. It allows users to execute operations like file creation, deletion, moving, copying, and more, while also providing detailed system information. Utilizing NLP, MEINEAI can understand and interpret user commands to perform tasks such as identifying file names and specific operations.
+**MEINE AI** is a OFFLINE NLP based CLI application designed for file and system management. It allows users to execute operations like file creation, deletion, moving, copying, and more, while also providing detailed system information. Utilizing NLP, MEINEAI can understand and interpret user commands to perform tasks such as identifying file names and specific operations.
 
 ## Features
 
