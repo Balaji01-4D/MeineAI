@@ -30,13 +30,6 @@ Ensure you have the following Python libraries installed:
 
 Contributions are welcome! If you'd like to contribute to MEINEAI, please fork the repository and submit a pull request. You can also open issues for feature requests or bug reports.
 
-Here's an updated **Commands** section based on your examples with varied names and paths:  
-
----
-
-Here’s the updated **Commands** section with system-related commands:  
-
----
 
 ## Basic Usage  
 
