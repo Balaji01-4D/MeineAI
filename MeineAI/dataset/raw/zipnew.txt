@@ -1,0 +1,42 @@
+zip file report_final.docx
+z folder C:/Downloads/Music
+compress folder D:/Projects/Java
+unzip C:/Backup/compressed_files.zip
+extract D:/Configs/System/firewall_config.json
+uz C:/Temp/Logs/system_error.log
+zip presentation.pptx
+z folder D:/Pictures/Vacation
+compress folder Documents/Personal
+unzip D:/Media/Videos/highlights.zip
+extract C:/Projects/Work/readme.md
+uz C:/Configs/Security/backup_config.json
+zip notes_summary.txt
+z the folder C:/Documents/Tutorials
+compress folder D:/Temp/Logs/debug_logs
+unzip C:/Media/Movies/archive.zip
+extract D:/Projects/Test/source_code.py
+uz C:/Files/References/guide.docx
+zip the index_main.html
+z the folder /Docs/Guides
+compress folder C:/Datasets/AI/training_data
+unzip C:/Archives/Backup/logs_backup.zip
+extract /Games/Puzzle/level_data
+uz C:/Media/Audio/podcast.mp3
+zip the tasks_list.csv
+z the C:/Resources/Images
+compress /Configs/Deployment
+unzip C:/Archives/Demo/sample_backup.zip
+extract Work/Projects/summary_report.docx
+uz C:/System/Settings/user_preferences.json
+zip the file budget_plan.xlsx
+z the Photos/Nature
+compress C:/Users/Admin/Downloads/Attachments
+unzip Compressed/Work/project_files.zip
+extract C:/Scripts/Python/utilities.zip
+uz Documents/Office/policy.pdf
+zip file terms_conditions.txt
+z D:/Backup/Configs/Servers
+compress folder /Workspace/Projects/ML
+unzip /Media/Images/vacation_photos.zip
+extract D:/Work/Data/statistics.json
+uz C:/Users/Public/Logs/activity.log

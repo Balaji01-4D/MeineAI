@@ -7,10 +7,13 @@ import psutil
 from rich.console import Console
 import platform
 from tabulate import tabulate
+from datetime import datetime
+import pywifi
 
 console = Console()
 
 from Actions import other
+
 class System:
 
     def Time(self) -> None :
@@ -50,18 +53,17 @@ class System:
             return
         size = other.SizeHelper(Name.stat().st_size) 
         stats = Name.stat()
-        info : dict ={
-            'Name' : Name.name,
-            'Path' : str(Name.resolve()),
-            'size' : size,
-            'Type' : "File" if (not Name.is_dir()) else "Directory",
-            'Created' : ctime(stats.st_ctime),
-            'Last Modified' : ctime(stats.st_mtime),
-            'Last Accessed' : ctime(stats.st_atime),
-            'Mode' : stats.st_mode
-        }
-        for key,value in info.items():
-            print(f"{key} : {value}")
+        info : dict =[
+            ['Name' , Name.name],
+            ['Path' , str(Name.resolve())],
+            ['size' , size],
+            ['Type' , "File" if (not Name.is_dir()) else "Directory"],
+            ['Created' , ctime(stats.st_ctime)],
+            ['Last Modified' , ctime(stats.st_mtime)],
+            ['Last Accessed' , ctime(stats.st_atime)],
+            ['Mode' , stats.st_mode]
+        ]
+        console.print(tabulate(info,headers=['Attribute','Value'],floatfmt='fancy_grid'))
     
     def IP(self):
         import socket
@@ -136,9 +138,9 @@ class System:
 
     def DiskInfo(self):
         disk_info = []
-        seen_devices = set()  
+         
         for partition in psutil.disk_partitions():
-            if partition.device not in seen_devices:  
+             
                 usage = psutil.disk_usage(partition.mountpoint)
                 disk_info.append([
                     partition.device,
@@ -146,8 +148,85 @@ class System:
                     f"{usage.used / (1024 ** 3):.2f} GB",
                     f"{usage.free / (1024 ** 3):.2f} GB",
                     f"{usage.percent}%",
-                ])
-                seen_devices.add(partition.device)  
-
+                ]) 
         console.print(tabulate(disk_info, headers=["Device", "Total Size", "Used", "Free", "Usage"], tablefmt="fancy_grid"))          
+
+    def Processes(self):
+        process_list = []
+
+        # Iterate over all running processes
+        for proc in psutil.process_iter(attrs=['pid', 'name', 'status', 'memory_info', 'create_time']):
+            try:
+                pid = proc.info['pid']
+                name = proc.info['name']
+                status = proc.info['status']
+                memory = proc.info['memory_info'].rss / (1024 * 1024)  
+                start_time = datetime.fromtimestamp(proc.info['create_time']).strftime("%Y-%m-%d %H:%M:%S")
+                cpu_usage = proc.cpu_percent(interval=0.1) 
+                process_list.append([pid, name, status, f"{memory:.2f} MB", start_time, f"{cpu_usage:.2f}%"])
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                pass
+
+        # Define headers
+        headers = ["PID", "Name", "Status", "Memory (RAM)", "Start Time", "CPU Usage (%)"]
+
+        # Print table
+        console.print(tabulate(process_list, headers=headers, tablefmt="fancy_grid"))
+    
+    def ProcessKill(self,pid):
+        try:
+            process = psutil.Process(pid)
+            process.kill()
+            print(f"Process with PID {pid} has been terminated.")
+        except psutil.NoSuchProcess:
+            print(f"No process with PID {pid} exists.")
+        except psutil.AccessDenied:
+            print(f"Permission denied to terminate the process {pid}.")
+        except Exception:
+            print(f"Permission denied to terminate the process {pid}")
+        
+    
+    def Scan_Wifi_Window(self) -> None:                                                #window 
+        wifi = pywifi.PyWiFi()  
+        iface = wifi.interfaces()[0]  
+
+        iface.scan() 
+        scan_results = iface.scan_results() 
+
+        wifi_data = []
+        for network in scan_results:
+            encryption_status = "Locked" if network.akm else "Open"
+            wifi_data.append([network.ssid, network.signal, encryption_status])
+
+        headers = ["SSID", "Signal Strength", "Encryption"]
+        console.print(tabulate(wifi_data, headers=headers, tablefmt="fancy_grid"))
+
+
+
+    def scan_wifi_linux(self) -> None:
+        import subprocess
+        result = subprocess.run(['nmcli', '-v'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode == 0:
+            result = subprocess.run(['nmcli', '-t', '-f', 'SSID,SECURITY', 'dev', 'wifi'], stdout=subprocess.PIPE)
+            networks = result.stdout.decode('utf-8').strip().split('\n')
+
+            wifi_data = []
+            for network in networks:
+                if network.strip():  
+                    ssid, security = network.split(':', 1)
+                    status = "Locked" if security else "Open"
+                    wifi_data.append([ssid, status])
+            headers = ["SSID", "Security"]
+            print(tabulate(wifi_data, headers=headers, tablefmt="fancy_grid"))
+        else:
+            print("This script requires 'nmcli' for managing Wi-Fi.")
+            print("To install it, run:")
+            print("  sudo apt install network-manager  # For Debian/Ubuntu")
+            print("  sudo yum install NetworkManager  # For RHEL/Fedora")
+            print("  sudo pacman -S networkmanager    # For Arch Linux")
+
+
+
+
+    
 
