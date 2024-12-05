@@ -4,80 +4,103 @@ import shutil as sl
 from pathlib import Path
 from time import ctime
 import psutil
-from rich.console import Console
+from rich.console import Console,Group
 import platform
 from tabulate import tabulate
 from datetime import datetime
 import pywifi
-
+from rich.progress import Progress, BarColumn
+from rich.panel import Panel
+from rich.table import Table
 console = Console()
 
-from Actions import other
+import other
 
 class System:
 
     def Time(self) -> None :
-        print(dt.datetime.now())
+        date = dt.datetime.now().date()
+        time = dt.datetime.now().time()
+        console.print(Panel(f'[color(197)]DATE : {date}\nTIME : {time}'),width=50,style='color(105)')
+        
+
+    
     
     def DiskSpace(self, Destination: Path =Path('/')) -> None: 
         total , used , free = sl.disk_usage(Destination)
+        Swap = psutil.swap_memory()
         data ={
-            'FREE' : free / total * 100,
+            'AVAILABLE' : free / total * 100,
             'USED' : used / total * 100
         }
-        other.display_progress(data,'Disk Space')
-        print("Total :",other.SizeHelper(total))
-        print("Used  :",other.SizeHelper(used))
-        print("Free  :",other.SizeHelper(free))
+        Bar =  Progress("[progress.description]{task.description}",
+        BarColumn(bar_width=30,complete_style='#2196F3',style='#F2F2F2'),
+        "{task.percentage:>3.0f}%",
+        console=console,
+        ) 
+        Available = Bar.add_task(f"[#2196F3]AVAILABLE % ", total=100, completed=data['AVAILABLE'])
+        Bar.update(Available,completed=data['AVAILABLE'])
+        UsedRam = Bar.add_task(f"[#2196F3]USED      % ", total=100, completed=data['USED'])
+        Bar.update(UsedRam,completed=data['USED'])
+        storage = Table(show_lines=True,style='#A6A6C3')
+        storage.add_column('')
+        storage.add_column('[#2196F3]STORAGE')
+        storage.add_column('[#2196F3]SWAP MEMORY')
+        storage.add_row(f'[#2196F3]TOTAL',other.SizeHelper(total),other.SizeHelper(Swap.total))
+        storage.add_row(f'[#2196F3]USED',other.SizeHelper(used),other.SizeHelper(Swap.used))
+        storage.add_row(f'[#2196F3]FREE',other.SizeHelper(free),other.SizeHelper(Swap.free))
+        panelcollections = Group(Panel('[#2196F3] STORAGE',style='#A6A6C3'),Panel(storage,style='#FFFFFF'),Panel(Bar,style='#A6A6C3'))
+        console.print(Panel(panelcollections,style='#1E1E2C',width=60))
     
     def GetCurrentDir(self) -> None:
-        path:Path = Path('.')
-        print(f"{path.resolve()}")
+        path:Path = str(Path('.').resolve())
+        console.print(Panel(f'[#F2F2F2]CURRENT DIRECTORY: {path}',width=len(path)+70),style='#2196F3')
 
 
     def CD(self, Destination: Path) -> None:
-        if (Destination.exists() and Destination.is_dir()):
+        if (Destination.is_dir()):
             try:
-                os.chdir(Path)
+                path = str(Destination)
+                os.chdir(path)
+                self.GetCurrentDir()
             except PermissionError:
-                print(f"Permission Denied")            
-            except Exception:
-                print(f"Can't Change directory to {Destination.name}")
+                console.print(f"Permission Denied")            
+            except Exception as e:
+                console.print(f"Can't Change directory to {Destination.name}")
         elif (Destination.is_file()):
-            print(f"Cant Change {Destination.name} Is File.")
+            console.print(f"Cant Change {Destination.name} Is File.")
         else:
-            print(f"{Destination.name} Not Found.")
+            console.print(f"{Destination.name} Not Found.")
+
     def Info(self, Name : Path) -> None:
         if (not Name.exists()):
-            print(f"{Name.name} Not Found")
+            console.print(f"{Name.name} Not Found")
             return
-        size = other.SizeHelper(Name.stat().st_size) 
         stats = Name.stat()
-        info : dict =[
-            ['Name' , Name.name],
-            ['Path' , str(Name.resolve())],
-            ['size' , size],
-            ['Type' , "File" if (not Name.is_dir()) else "Directory"],
-            ['Created' , ctime(stats.st_ctime)],
-            ['Last Modified' , ctime(stats.st_mtime)],
-            ['Last Accessed' , ctime(stats.st_atime)],
-            ['Mode' , stats.st_mode]
-        ]
-        console.print(tabulate(info,headers=['Attribute','Value'],floatfmt='fancy_grid'))
+        Fullpath = Name.resolve()
+        size = other.SizeHelper(stats.st_size)
+        info = Table(show_header=False,show_lines=True,style='#2196F0')
+        info.add_row(f'[#F2F2F2]Name' , Fullpath.name)
+        info.add_row(f'[#F2F2F2]Path' , str(Fullpath))
+        info.add_row(f'[#F2F2F2]size' , size)
+        info.add_row(f'[#F2F2F2]Type' , "File" if (not Name.is_dir()) else "Directory")
+        info.add_row(f'[#F2F2F2]Created' , ctime(stats.st_ctime))
+        info.add_row(f'[#F2F2F2]Last Modified' , ctime(stats.st_mtime))
+        info.add_row(f'[#F2F2F2]Last Accessed' , ctime(stats.st_atime))
+        console.print(info)
     
     def IP(self):
         import socket
         hostname = socket.gethostname()
         ip_address = socket.gethostbyname(hostname)
-        net_info = [
-            ["Hostname", hostname],
-            ["IP Address", ip_address],
-        ]
-        console.print(tabulate(net_info, headers=["Attribute", "Value"], tablefmt="fancy_grid"))
+        net_info = Table(show_header=False,style='color(105)',show_lines=True)
+        net_info.add_row(f"[#F2F2F2]Hostname", hostname)
+        net_info.add_row(f"[#F2F2F2]IP Address", ip_address)
+        console.print(net_info)
 
     
     def HomeDir(self):
-        console.print(f"Home Directory :  ",Path.home())
+        console.print(Panel(f'Home Directory :  {Path.home()}',width=50,style='color(105)'))
 
     def RAMInfo(self):
         memory = psutil.virtual_memory()
@@ -88,10 +111,21 @@ class System:
                 'AVAILABLE': Avail/Total * 100,
                 'USED' : Used/Total * 100
         }
-        other.display_progress(data,'Ram Info')
-        print(f"Total Memory : {other.SizeHelper(Total)}")
-        print(f"Memory Available : {other.SizeHelper(Avail)}")
-        print(f"Memory Used : {other.SizeHelper(Used)}")
+        Rampanel =  Progress(
+        "[progress.description]{task.description}",
+        BarColumn(bar_width=30,complete_style='color(105)'),
+        "{task.percentage:>3.0f}%",
+        console=console,
+        ) 
+        Available = Rampanel.add_task(f"[color(167)]AVAILABLE % ", total=100, completed=data['AVAILABLE'])
+        Rampanel.update(Available,completed=data['AVAILABLE'])
+        UsedRam = Rampanel.add_task(f"[color(197)]USED      % ", total=100, completed=data['USED'])
+        Rampanel.update(UsedRam,completed=data['USED'])
+        panel_group = Group(Panel(f'      [bold cyan]RAM',width=20),Panel(Rampanel,width=70),
+        Panel(f"[cyan]Total Memory      : {other.SizeHelper(Total)}\n"+
+                            f"[color(167)]Memory Available  : {other.SizeHelper(Avail)}\n"+
+                            f"[color(197)]Memory Used       : {other.SizeHelper(Used)}",width=70))
+        console.print(Panel(panel_group,width=70,style='color(105)'))
 
     def SYSTEM(self):
         os_info = [
@@ -108,10 +142,20 @@ class System:
     def Battery(self):
         battery = psutil.sensors_battery()
         if battery:
-            other.display_progress({'BATTERY %': round(battery.percent)},'BATTERY')
-            console.print(f"[blue]Battery Status: {'Charging' if battery.power_plugged else "Not Charging"}")
+            BtPercent =  round(battery.percent)
+            colour = 'green' if (BtPercent > 30) else 'red'
+            with Progress(
+        "[progress.description]{task.description}",
+        BarColumn(bar_width=30,complete_style=colour),
+        "{task.percentage:>3.0f}%",
+        console=console,
+        ) as progress:
+                bt = progress.add_task(f"[bold cyan]BATTERY % ", total=100, completed=BtPercent)
+                progress.update(bt,completed=BtPercent)
+
+            console.print(f"[bold cyan]Battery Status: {f'[bold blue]Charging' if battery.power_plugged else f"[bold red]Not Charging"}")
         else:
-            console.print(f"[blue]No battery information available.")
+            console.print(f"[bold green]No battery information available.")
 
 
     def NetWork(self):
@@ -129,8 +173,19 @@ class System:
                 
 
     def CPU(self):
-        console.print(f"[blue]CPU Count: {psutil.cpu_count(logical=True)}")
-        console.print(f"[blue]CPU Usage: {psutil.cpu_percent(interval=1)}%")
+        Usage = psutil.cpu_percent(interval=1)
+        color = 'red' if (Usage > 75) else 'green'
+        with Progress(
+        "[progress.description]{task.description}",
+        BarColumn(bar_width=30,complete_style=color),
+        "{task.percentage:>3.0f}%",
+        console=console,
+        ) as progress:
+                Task = progress.add_task(f"[bold magenta]CPU PERCENT % ", total=100, completed=Usage)
+                progress.update(Task,completed=Usage)
+        console.print(f"[bold magenta]CPU Count[/bold magenta]: {psutil.cpu_count(logical=True)}")
+        
+        console.print(f"[bold magenta]CPU FREQ RANGE:[/bold magenta] {psutil.cpu_freq().min} < {psutil.cpu_freq().current} < {psutil.cpu_freq().max}")
 
     def USER(self):
         import getpass
@@ -153,8 +208,6 @@ class System:
 
     def Processes(self):
         process_list = []
-
-        # Iterate over all running processes
         for proc in psutil.process_iter(attrs=['pid', 'name', 'status', 'memory_info', 'create_time']):
             try:
                 pid = proc.info['pid']
@@ -225,8 +278,5 @@ class System:
             print("  sudo yum install NetworkManager  # For RHEL/Fedora")
             print("  sudo pacman -S networkmanager    # For Arch Linux")
 
-
-
-
-    
-
+a = System()
+a.SYSTEM()

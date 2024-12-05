@@ -1,4 +1,4 @@
-from .other import *
+import other
 from .file import *
 from .folder import Folder
 from .system import System
