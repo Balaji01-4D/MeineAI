@@ -34,7 +34,7 @@ def display_progress(data: dict, title: str):
     - data (dict): A dictionary where keys are labels and values are percentages (0-100).
     - title (str): Title for the progress section.
     """
-    console.rule(f"[bold green]{title}")
+    console.rule(f"[bold green]{title}",characters=' ')
     with Progress(
         "[progress.description]{task.description}",
         BarColumn(bar_width=30),

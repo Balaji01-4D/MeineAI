@@ -1,0 +1,6 @@
+setup.py
+MeineAI.egg-info/PKG-INFO
+MeineAI.egg-info/SOURCES.txt
+MeineAI.egg-info/dependency_links.txt
+MeineAI.egg-info/requires.txt
+MeineAI.egg-info/top_level.txt

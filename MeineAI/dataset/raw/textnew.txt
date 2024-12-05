@@ -1,0 +1,41 @@
+find text 'overview' in /Users/Admin/Documents/project_notes.md
+where 'overview' in C:/Projects/Research/summary_report.docx
+search the 'username' in D:/Data/users_list.csv
+find 'password' in C:/Configs/security_settings.json
+where 'username' in D:/Work/docs/credentials.csv
+search 'path' in C:/System/settings/config.json
+find 'port' in /Network/firewall/config.yaml
+where 'error' in C:/Logs/server_logs.log
+search the 'success' in /Work/logs/process.log
+find 'session' in C:/Users/Admin/AppData/local_cache.dat
+where 'host' in /Projects/WebApp/server_config.yaml
+search 'ip' in C:/Network/configurations/network_settings.ini
+find 'proxy' in /Configs/network/proxy_settings.json
+where 'log' in C:/Users/Admin/Desktop/logs/debug.log
+search the 'mode' in /Configs/ui_settings.json
+find 'auth' in C:/System/security/auth_config.json
+where 'token' /Applications/settings/api_keys.yaml
+search 'data' C:/Users/Public/Documents/shared_data.csv
+find text 'cache' /Temp/system_cache.log
+where text 'debug' C:/Logs/application_logs.log
+search the text 'timeout' Network/connections/timeout_settings.yaml
+find text 'build' C:/Users/Admin/Downloads/build_log.txt
+where text 'output' Projects/Scripts/script_output.log
+search 'version' C:/ProgramData/configurations/version_info.ini
+find text 'query' Database/queries/query_list.sql
+where text 'index' Users/Admin/SearchEngine/index_info.json
+search the text 'result' D:/TestCases/logs/test_result.log
+find text 'admin' Users/Admin/SystemFiles/user_roles.csv
+where text 'user' D:/Projects/Management/users_info.csv
+search 'account' Users/Admin/WorkData/accounts.csv
+find text 'group' D:/Users/Settings/group_data.txt
+where text 'profile' Users/Default/Documents/profile_settings.json
+search the text 'email' D:/Emails/logs/email_data.txt
+find text 'phone' Users/Admin/Contacts/phone_numbers.csv
+where text 'password' D:/Work/Documents/password_list.txt
+search 'login' Users/Shared/Logs/login_activity.log
+find text 'logout' D:/Work/Logs/logout_activity.log
+where text 'id' in Database/records/user_ids.sql
+search the text 'status' in D:/Projects/Reports/status_log.txt
+find text 'progress' in /Users/Admin/Desktop/Progress/progress_info.json
+

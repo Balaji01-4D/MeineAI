@@ -1,0 +1,87 @@
+cd to C:/Datasets/AI/training
+cd archives/research
+change directory to finance/reports/annual
+chdir media/videos/tutorials
+cd to temp/cache/logs
+cd resources/testing/models
+change directory to games/racing/levels
+chdir C:/Users/Admin/Pictures/travel
+cd to configs/security/profiles
+cd downloads/music/playlists
+change directory to system/drivers/configs
+chdir projects/python/scripts
+cd to backup/system/logs
+cd desktop/folders
+change directory to database/records/entries
+ram
+my ram
+cpu
+my cpu
+gpu
+my gpu
+system
+sys
+ip
+my ip
+network
+env
+environment variables
+ram
+show content C:/Users/Admin/.bash_aliases
+show file D:/System/Projects/python_code.py
+check ram
+cpu usage
+gpu stats
+system info
+network status
+check ip
+env
+ram
+my ram
+sys
+ip
+my ip
+network
+env
+environment variables
+my battery
+battery usage
+bt
+battery
+battery status
+power off
+reboot
+restart
+net
+disk info
+disk usage
+shutdown
+poweroff
+show file C:/Users/Admin/Documents/work_logs.py
+show D:/Projects/new_features
+show C:/Downloads/compressed_files.zip
+show photos/holidays/summer/
+show content C:/Users/Admin/.gitconfig
+show content C:/Users/Admin/AppData/.bash_history
+show D:/Scripts/.env
+show C:/Users/Public/.cache
+show files D:/Backup/archives.zip
+show pictures/recent_snapshots/
+show content D:/Configs/system/.settings.yaml
+show content C:/Users/Admin/.zshrc
+show file D:/Work/projects/final_code.py
+show C:/Users/Admin/Documents/.hidden_folder
+show files in C:/Users/Admin/Downloads
+show pictures/travel/.hidden_photos/
+show content D:/System/Logs/.log_settings
+show file C:/Users/Admin/Desktop/.env_vars.py
+show folder C:/Projects/.drafts
+show D:/Backup/collection/
+show content C:/Users/Admin/AppData/Local/.appconfig
+show content D:/System/Temp/.temp_cache.json
+show folder C:/Datasets/AI/.model_config
+show files.zip in D:/Media/pictures/archives
+show pictures/winter/hidden_photos/
+show content C:/Users/Admin/.ssh/config
+show file C:/Users/Default/AppData/.hidden_logs.log
+show  D:/Work/Configurations/.network_setup

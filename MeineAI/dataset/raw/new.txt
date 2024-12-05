@@ -1,0 +1,144 @@
+m the ./pictures/mountain.png to ./gallery/scenery
+m /videos/documentary.mp4 to /media/learning folder
+move /system/themes to /configs/defaults
+mv the /docs/manual.pdf to movies/.guides
+cp the /downloads/setup.exe to /installers folder
+c /temp/cache/temp_files to /archives/temp_data
+copy /projects/ai/models to /resources/training
+copy the folderC:/projects/research/datasets to C:/resources/data
+m the C:/images/portrait.jpg to C:/gallery/portraits
+m file C:/songs/rock.mp3 to /media/music
+move /system/drivers to /configs/system_files
+mv the /docs/invoice.xlsx to /rules/finance
+cp the /work/notes/meeting_minutes.docx to /library/documents
+c /temp/uploads/images to /archives/uploads
+copy./projects/simulations/models to /resources/simulation_data
+copy the  /projects/data/inputs to /resources/inputs
+m the file /pictures/ocean.png to /gallery/water
+m file./movies/drama.mp4 to./media/movies
+move /system/fonts to /configs/resources
+mv the /docs/project_plan.docx to /tours/plans
+cp the /downloads/manual.pdf to /guides
+c /temp/debug/logs to /archives/debug_data
+copy /projects/vr/assets to /resources/vr
+copy the  /projects/ar/samples to /resources/samples
+m the file./pictures/forest.jpg to /gallery/nature
+m file /videos/tutorial.mp4 to /media/tutorials
+move /system/icons to /configs/ui
+mv the /docs/specifications.docx to /files/specs
+cp the /work/proposals/budget.xlsx to /library/finance
+c./temp/backups/files to /archives/backups
+copy /projects/engineering/models to /resources/engineering
+copy the  /projects/science/reports to /resources/reports
+m the file /images/flower.png to /gallery/flowers
+m file /music/classical.mp3 to /media/classics folder
+move /system/configurations to /configs/backups
+mv the /docs/reference.pdf to data/references
+cp the./work/assignments/homework.docx to /library/homework
+c /temp/output/reports to /archives/output folder
+copy /projects/dev/samples to /resources/development
+copy the folder /projects/tests/results to /resources/testing folder
+m the file./pictures/cityscape.jpg to /gallery/.cities
+m file /movies/comedy.mp4 to /media/entertainment folder
+move /system/logs to /configs/log_archive
+mv the C:/docs/summary.docx to C:/flowers/summaries
+cp the C:/work/records/attendance.xlsx to./library/records
+c C:/temp/uploads/audio to C:/archives/audio folder
+copy C:/projects/tools/utilities to C:/resources/utilities
+copy ./ folder C:/projects/coding/scripts to C:/resources/.scripts folder
+
+create folder C:/configs/network
+create ./app/new/chatbot
+create file index.html
+create folder C:/configs/cache
+create script.js
+mk schedule.txt
+mk C:/docs/policies
+mk notes.md
+mk folder C:/logs/.errors
+mk file agenda.txt
+make file proposal.pptx
+make C:/images/wildlife
+make C:/videos/documentaries
+make file analysis_report.pdf
+make C:/images/culture
+del C:/projects/ai/training_data
+delete C:/audio/genres/classical
+del C:/media/videos/travel/beach.mp4
+del C:/projects/web/assets
+delete C:/audio/genres/pop
+delete the C:/media/photos/events/conference.jpg
+del C:/projects/research/dataset.csv
+delete C:/audio/genres/.hiphop
+rm the file C:/configs/system/config.yaml
+rm C:/configs/system/middleware
+rm the folder C:/configs/user_profiles
+remove the file C:/backup/settings/configuration.json
+remove C:/backup/system/cache/
+remove the file downloads/plugins/user/setup.py
+create the folder C:/configs/logging
+create the app/new/ecommerce
+create the file config.json
+create the folder C:/configs/ui
+create the readme.md
+mk archive.zip
+mk C:/docs/specifications
+mk report.md
+mk folder C:/projects/sandbox
+mk file todo.txt
+make the file design.pdf
+make C:/videos/clips
+make C:/images/architecture
+make the file summary.docx
+make D:/images/icons
+delete D:/projects/nlp/corpus.txt
+delete D:/videos/genres/horror
+del the D:/media/music/collection/hits.mp3
+del D:/projects/web/designs
+delete D:/videos/genres/drama
+delete the D:/media/illustrations/portfolio/logo.png
+del D:/projects/database/schema.sql
+delete D:/videos/genres/documentary
+rm the file D:/configs/auth/settings.env
+rm D:/configs/auth/session
+rm the folder D:/configs/backup/settings
+remove the file D:/backup/storage/archive.zip
+remove D:/backup/data/temp/
+remove the file downloads/scripts/system/setup.sh
+
+rename the notes.txt as reminders.txt
+rename report.docx to final_report.docx
+rename the D:/configs/settings.yaml to config.yaml
+rename file C:/Users/Admin/Downloads/resume.pdf as profile.pdf
+rename the tasks.json as todos.json
+rename tasks.json to checklist.json
+rename the D:/configs/server_config.xml to server_setup.xml
+rename file D:/Documents/workbook.xlsx as data_sheet.xlsx
+rename the analysis.py as script.py
+rename analysis.py to data_analysis.py
+
+rn logs/errors as error_logs
+rn configs/old_config.json to updated_config.json
+rn the D:/Projects/codebase/main.c to main_program.c
+rn system/logs/log.txt as old_log.txt
+rn the temporary.doc as final_version.doc
+rn test_data.csv to data_set.csv
+rn the D:/resources/template.html to index.html
+rn C:/Users/Admin/Desktop/chart.png as graph.png
+rn setup.yaml as configuration.yaml
+rn the script.bat as automation.bat
+rn setup.yaml to environment.yaml
+rn the /assets/style.css to theme.css
+rn C:/Users/Admin/Projects/module.js as app.js
+rename temporary_file.tmp as finalized.tmp
+rename the image.jpeg as photo.jpeg
+rename old_code.py to refactored_code.py
+rename the./projects/phase1_report.docx to final_report.docx
+rename C:/Users/Admin/Videos/intro.mp4 as tutorial.mp4
+rename draft.txt as version1.txt
+rename the D:/Work/docs/presentation.pptx as slide_deck.pptx
+rn backup/images/image_old.png as image_new.png
+rn resources/templates/template_old.html to template_new.html
+rn the C:/Logs/old_logfile.log as log_archive.log
+rn data/backup.csv to restored.csv
+

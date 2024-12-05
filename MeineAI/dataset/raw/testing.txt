@@ -1,0 +1,21 @@
+rename the /configs/ui_config.yaml to ui_settings.yaml
+rename C:/Users/Admin/Pictures/image.png as photo.png
+rename pyproject/main.py to init_script.py
+rename the /scripts/deploy.sh to deployment.sh
+rename the draft.docs as document.docs
+rename backup/docs/old_report.docx to archived_report.docx
+rn screenshots/capture1.png as snapshot1.png
+rn logs/old_logs.txt as archived_logs.txt
+rn documents/old_plan.doc to new_plan.doc
+rn the C:/Users/Admin/Notes/todo.txt as tasks.txt
+rn config/settings.ini to default_settings.ini
+rn backup/styles/style1.css to updated_style.css
+rn logs/.archive_log.txt as history_log.txt
+copy /projects/ai/models to /resources/training
+copy the folder /projects/research/datasets to /resources/data/data_sheet
+cp /projects/ai/models to /resources/training/temp_data
+cp the folder /projects/research/datasets to /resources/data/nature
+m the./pictures/mountain.png to./gallery/scenery
+m /videos/documentary.mp4 to /media/learning folder
+move /system/themes to /configs/defaults
+mv the /docs/manual.pdf to movies/.guides
