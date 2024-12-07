@@ -1,34 +1,34 @@
-search the text 'error' in logs.txt  
-find text 'error' in logs.txt  
-where text 'error' in logs.txt  
-search the text 'project' in tasks.doc  
-find text 'project' in tasks.doc  
-where 'project' in tasks.doc  
-search 'summary' in notes.md  
-find text 'summary' in notes.md  
-where text 'summary' in notes.md  
-search the text 'admin' in users.csv  
-find text 'admin' in users.csv  
-where text 'admin' in users.csv  
-search'config' in settings.json  
-find text 'config' in settings.json  
-where text 'config' in settings.json  
-search the text 'debug' in logs/errors.log  
-find text 'debug' in logs/errors.log  
-where text 'debug' in logs/errors.log  
-search  'data' in research.txt  
-find text 'data' in research.txt  
-where text 'data' in research.txt  
-search  'student' in records.db  
-find text 'student' in records.db  
-where text 'student' in records.db  
-search the text 'task' in todo.txt  
-find text 'task' in todo.txt  
-where text 'task' in todo.txt  
-search  'class' in schedule.pdf  
-find text 'class' in schedule.pdf  
-where text 'class' in schedule.pdf  
-search the text 'error' in system.log  
-find text 'error' in system.log  
-where 'error' in system.log  
+search the text 'error' in logs.txt
+find text 'error' in logs.txt
+where text 'error' in logs.txt
+search the text 'project' in tasks.doc
+find text 'project' in tasks.doc
+where 'project' in tasks.doc
+search 'summary' in notes.md
+find text 'summary' in notes.md
+where text 'summary' in notes.md
+search the text 'admin' in users.csv
+find text 'admin' in users.csv
+where text 'admin' in users.csv
+search'config' in settings.json
+find text 'config' in settings.json
+where text 'config' in settings.json
+search the text 'debug' in logs/errors.log
+find text 'debug' in logs/errors.log
+where text 'debug' in logs/errors.log
+search  'data' in research.txt
+find text 'data' in research.txt
+where text 'data' in research.txt
+search  'student' in records.db
+find text 'student' in records.db
+where text 'student' in records.db
+search the text 'task' in todo.txt
+find text 'task' in todo.txt
+where text 'task' in todo.txt
+search  'class' in schedule.pdf
+find text 'class' in schedule.pdf
+where text 'class' in schedule.pdf
+search the text 'error' in system.log
+find text 'error' in system.log
+where 'error' in system.log
 
