@@ -128,16 +128,14 @@ class System:
         console.print(Panel(panel_group,width=70,style='color(105)'))
 
     def SYSTEM(self):
-        os_info = [
-        ["System", platform.system()],
-        ["Node Name", platform.node()],
-        ["Release", platform.release()],
-        ["Version", platform.version()],
-        ["Machine", platform.machine()],
-        ["Processor", platform.processor()],
-        ]
-        console.print("\n[OS Information]")
-        console.print(tabulate(os_info, headers=["NAME", "INFO"], tablefmt="fancy_grid"))
+        systemtable = Table(show_header=False,show_lines=True)
+        systemtable.add_row("SYSTEM",platform.system())
+        systemtable.add_row("Node Name", platform.node())
+        systemtable.add_row("Release", platform.release())
+        systemtable.add_row("Version", platform.version())
+        systemtable.add_row("Machine", platform.machine())
+        systemtable.add_row("Processor", platform.processor())
+        console.print(Panel(systemtable,width=systemtable._measure_column(console)))
 
     def Battery(self):
         battery = psutil.sensors_battery()
