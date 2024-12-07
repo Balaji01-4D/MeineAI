@@ -1,0 +1,542 @@
+copy the c:/home/documents/workflow to /backup/plans
+cp the /pictures/vacation/beach.jpg to /albums/travel
+c d:/temp/config/settings.json to /configs/system
+copy the c:/projects/research/data.csv to /resources/database
+cp the /docs/manuals/user_guide.pdf to /library/guides
+c temp/cache/errors.log to /archives/errors
+copy the c:/users/admin/notes/meeting.txt to /documents/minutes
+cp the /images/nature/forest.png to /gallery/photos
+c d:/temp/logs/debug.log to /logs/archives
+copy the c:/desktop/assignments/project1 to /backup/projects
+cp the /reports/sales/q1.pdf to /library/sales
+c d:/users/public/config.ini to /configs/shared
+copy the c:/media/music/track.mp3 to /audio/collection
+cp the /videos/movies/action.mp4 to /media/films
+c temp/data/summary.txt to /resources/archives
+copy the c:/configs/server/settings.xml to /configs/backup
+cp the /backup/system/logs/errors.txt to /logs/archive
+c d:/workspace/models/output.h5 to /resources/training
+copy the c:/home/documents/reports/weekly.docx to /reports/archive
+cp the /users/admin/photos/trip.jpg to /gallery/vacation
+c temp/logs/system.log to /backup/logs
+copy the c:/resources/training/data.json to /datasets/final
+cp the /configs/templates/template1.docx to /library/templates
+c d:/users/admin/projects/sample to /resources/examples
+copy the c:/images/screenshot.png to /gallery/screenshots
+cp the /docs/ebooks/book.pdf to /library/reading
+c temp/logs/cache.log to /backup/cache
+delete c:/music/classical/symphony
+rm /videos/genres/comedy
+remove /audio/albums/rock
+del the /pictures/autumn.jpg
+create the app.js
+mk the file theme.css
+mkdir /configs/network
+create the server.rb
+create the file analytics.ipynb
+create the api/main.go
+create the file settings.json
+mk /projects/ml/models/model.h5
+create the utils.ts
+create the app/controllers.py
+mkdir /media/photos/landscapes
+create the file user_data.sql
+copy the c:/media/music/track.mp3 to /audio/collection
+cp the /videos/movies/action.mp4 to /media/films
+c temp/data/summary.txt to /resources/archives
+copy the c:/configs/server/settings.xml to /configs/backup
+cp the /backup/system/logs/errors.txt to /logs/archive
+c d:/workspace/models/output.h5 to /resources/training
+copy the c:/home/documents/reports/weekly.docx to /reports/archive
+cp the /users/admin/photos/trip.jpg to /gallery/vacation
+c temp/logs/system.log to /backup/logs
+copy the c:/resources/training/data.json to /datasets/final
+cp the /configs/templates/template1.docx to /library/templates
+c d:/users/admin/projects/sample to /resources/examples
+copy the c:/images/screenshot.png to /gallery/screenshots
+copy the c:/downloads/music/album.zip to /audio/archives
+cp the /videos/documentaries/nature.mp4 to /media/documentaries
+c temp/data/overview.txt to /resources/archives
+copy the c:/configs/app/config.json to /configs/backup
+cp the /backup/system/logs/warnings.txt to /logs/archive
+c d:/workspace/models/model_weights.h5 to /resources/training
+copy the c:/home/documents/meeting/minutes.docx to /reports/archive
+cp the /users/admin/photos/family.jpg to /gallery/family
+c temp/logs/error.log to /backup/logs
+copy the c:/resources/training/labels.json to /datasets/final
+cp the /configs/templates/template2.docx to /library/templates
+c d:/users/admin/projects/example_project to /resources/examples
+copy the c:/images/profile.png to /gallery/profiles
+copy the c:/downloads/videos/tutorial.mp4 to /media/tutorials
+cp the /videos/movies/drama.mp4 to /media/films
+c temp/data/analysis.txt to /resources/archives
+copy the c:/configs/server/backup.xml to /configs/backup
+cp the /backup/system/logs/critical_errors.txt to /logs/archive
+c d:/workspace/models/model_summary.h5 to /resources/training
+copy the c:/home/documents/presentations/slides.pptx to /reports/archive
+cp the /users/admin/photos/holiday.jpg to /gallery/holidays
+c temp/logs/access.log to /backup/logs
+copy the c:/resources/training/metadata.json to /datasets/final
+cp the /configs/templates/template3.docx to /library/templates
+c d:/users/admin/projects/demo_project to /resources/examples
+copy the c:/images/thumbnail.png to /gallery/thumbnails
+copy the c:/downloads/books/novel.pdf to /documents/ebooks
+cp the /videos/series/comedy.mp4 to /media/series
+c temp/data/report.txt to /resources/archives
+copy the c:/configs/app/settings.yaml to /configs/backup
+cp the /backup/system/logs/info.txt to /logs/archive
+c d:/workspace/models/model_performance.h5 to /resources/training
+copy the c:/home/documents/notes/meeting_notes.txt to /reports/archive
+cp the /users/admin/photos/landscape.jpg to /gallery/landscapes
+c temp/logs/debug.log to /backup/logs
+copy the c:/resources/training/annotations.json to /datasets/final
+cp the /configs/templates/template4.docx to /library/templates
+c d:/users/admin/projects/sample_project_v2 to /resources/examples
+copy the c:/images/banner.png to /gallery/banners
+copy the c:/media/music/track.mp3 to /audio/collection
+cp the /videos/movies/action.mp4 to /media/films
+c temp/data/summary.txt to /resources/archives
+copy the c:/configs/server/settings.xml to /configs/backup
+cp the /backup/system/logs/errors.txt to /logs/archive
+c d:/workspace/models/output.h5 to /resources/training
+copy the c:/home/documents/reports/weekly.docx to /reports/archive
+cp the /users/admin/photos/trip.jpg to /gallery/vacation
+c temp/logs/system.log to /backup/logs
+copy the c:/resources/training/data.json to /datasets/final
+cp the /configs/templates/template1.docx to /library/templates
+c d:/users/admin/projects/sample to /resources/examples
+copy the c:/images/screenshot.png to /gallery/screenshots
+copy the c:/downloads/music/album.zip to /audio/archives
+cp the /videos/documentaries/nature.mp4 to /media/documentaries
+c temp/data/overview.txt to /resources/archives
+copy the c:/configs/app/config.json to /configs/backup
+cp the /backup/system/logs/warnings.txt to /logs/archive
+c d:/workspace/models/model_weights.h5 to /resources/training
+copy the c:/home/documents/meeting/minutes.docx to /reports/archive
+cp the /users/admin/photos/family.jpg to /gallery/family
+c temp/logs/error.log to /backup/logs
+copy the c:/resources/training/labels.json to /datasets/final
+cp the /configs/templates/template2.docx to /library/templates
+c d:/users/admin/projects/example_project to /resources/examples
+copy the c:/images/profile.png to /gallery/profiles
+copy the c:/downloads/videos/tutorial.mp4 to /media/tutorials
+cp the /videos/movies/drama.mp4 to /media/films
+c temp/data/analysis.txt to /resources/archives
+copy the c:/configs/server/backup.xml to /configs/backup
+cp the /backup/system/logs/critical_errors.txt to /logs/archive
+c d:/workspace/models/model_summary.h5 to /resources/training
+copy the c:/home/documents/presentations/slides.pptx to /reports/archive
+cp the /users/admin/photos/holiday.jpg to /gallery/holidays
+c temp/logs/access.log to /backup/logs
+copy the c:/resources/training/metadata.json to /datasets/final
+cp the /configs/templates/template3.docx to /library/templates
+c d:/users/admin/projects/demo_project to /resources/examples
+copy the c:/images/thumbnail.png to /gallery/thumbnails
+copy the c:/downloads/books/novel.pdf to /documents/ebooks
+cp the /videos/series/comedy.mp4 to /media/series
+c temp/data/report.txt to /resources/archives
+copy the c:/configs/app/settings.yaml to /configs/backup
+cp the /backup/system/logs/info.txt to /logs/archive
+c d:/workspace/models/model_performance.h5 to /resources/training
+copy the c:/home/documents/notes/meeting_notes.txt to /reports/archive
+cp the /users/admin/photos/landscape.jpg to /gallery/landscapes
+c temp/logs/debug.log to /backup/logs
+copy the c:/resources/training/annotations.json to /datasets/final
+cp the /configs/templates/template4.docx to /library/templates
+c d:/users/admin/projects/sample_project_v2 to /resources/examples
+copy the c:/images/banner.png to /gallery/banners
+create the api/routes.js
+mk main/settings/config.yaml
+create the file report.docx
+create the dashboard.html
+mkdir /resources/deployment/scripts
+create the app/configs/api_keys.env
+create the index.php
+mk /logs/access_logs.txt
+create the file themes.xml
+mkdir /backup/data/archives
+make the bot/main.py
+create the file inventory.csv
+mk main/services/config.ini
+create the index.css
+mkdir /documents/presentations/slides
+create the test_cases.spec.js
+create the file database.db
+mk /images/photos/snapshot.jpg
+create the config/test_script.sh
+create the main/index.html
+mkdir /scripts/deployment/pipeline
+create the auth/keys.pem
+mk /configs/system/error_logs.log
+make the main_script.pl
+mkdir /projects/backend/models
+create the app/data/config.toml
+create the file schedule.xlsx
+mk /docs/research/summary.pdf
+create the theme.scss
+create the file user_profile.json
+mk the folder /configs/api_routes
+mkdir /projects/frontend/components
+create the file app.tsx
+create the backend/database/schema.sql
+mk /docs/manual/guide.pdf
+create the file themes/settings.ini
+mkdir /logs/server/errors.log
+create the file output.log
+create the config/prod.env
+mk /resources/images/logo.svg
+create the dashboard.vue
+mkdir /archives/data_backup.zip
+create the test_data/test_input.txt
+create the file index.jsx
+mk /configs/system/preferences.json
+create the main/scripts/build.gradle
+create the file template.docx
+mk /reports/yearly/summary.xlsx
+create the folder app/models.py
+create the auth/credentials.pem
+mkdir /projects/utils/helpers.rb
+create the user_data/profile.xml
+create the file network_config.ini
+mk /resources/fonts/styles.otf
+create the index.md
+mkdir /projects/docs/tutorials.md
+create the analytics/setup.py
+create the backend/routes/api.yaml
+mk /images/samples/image.png
+create the output/reports/summary.csv
+create the config/setup.bash
+mkdir /resources/templates/template.html
+create the main_script.dart
+create the file video.mp4
+mk /data/exports/export_data.json
+create the project/settings.gradle
+create the ui/component.stories.js
+mkdir /configs/system_logs/log.txt
+create the file archive.zip
+create the documents/files/manual.txt
+d /photos/travel
+delete c:/images/landscapes/sunset.png
+rm /videos/documentary/history.mp4
+remove /docs/archive/old_reports.docx
+del the /gallery/nature/forest.jpg
+d /media/movies/action
+delete c:/projects/data/dataset.csv
+rm /backup/system/logs/errors.log
+remove /configs/security/rules.yaml
+del the /pictures/winter.jpg
+d /media/music/classics
+delete c:/temp/logs/debug.log
+rm /resources/training/models/output.h5
+remove /configs/network/settings.json
+del the /images/vacation/mountains.png
+d /gallery/photos/landscapes
+delete c:/movies/genres/scifi.mkv
+rm /docs/templates/template1.docx
+remove /library/books/classics.pdf
+del the /pictures/flowers.jpg
+d /media/videos/tutorials
+delete c:/home/notes/todo.txt
+rm /projects/code/unused_script.py
+remove /pictures/trip/beach.jpg
+del the /music/genres/blues
+d /photos/nature/lake.jpg
+find 'email' in C:/Users/Admin/Documents/user_data.json
+where 'password' in D:/Data/security/credentials.csv
+search 'url' in C:/System/configurations/web_config.json
+find 'debug' in /Network/settings/server_config.yaml
+where 'key' in C:/Logs/access_logs.log
+search the 'timeout' in /Projects/logs/error.log
+find 'database' in C:/Users/Public/Documents/config.db
+where 'server' in /Configs/cloud/server_details.yaml
+search 'cache' in C:/ProgramData/settings/cache_config.ini
+find 'timeout' in /Configs/network/proxy.json
+where 'logfile' in C:/Users/Admin/Downloads/debug_logs.log
+search the 'theme' in /Configs/app/ui_preferences.json
+find 'region' in C:/System/locale/settings.json
+where 'session_id' in /Configs/api/session_data.yaml
+search 'admin' in C:/Users/Admin/AppData/temp/cache.json
+find 'router' in C:/Network/devices/router_settings.ini
+where 'queue' in /Projects/System/process_queues.yaml
+search 'disk' in C:/System/storage/disk_config.ini
+find 'gateway' in /Network/firewall/gateway_config.json
+where 'session_token' in C:/Users/Admin/Documents/session_data.json
+search 'file' in D:/Work/docs/config.xml
+find 'root' in /Configs/webapp/root_settings.yaml
+where 'directory' in C:/System/settings/directories.json
+search the 'access' in /Work/settings/access_rules.yaml
+find 'policy' in C:/Configs/security/policies.json
+where 'user_id' in /Projects/WebApp/config/user_settings.yaml
+search 'path' in D:/Network/settings/routes.ini
+find 'address' in /System/network/address_config.json
+where 'type' in C:/Logs/application_logs.log
+search the 'status' in /Configs/logs/status_logs.yaml
+copy the c:/media/movies/comedy.avi to /media/films
+cp the /resources/data/input.csv to /datasets/input
+c d:/workspace/scripts/main.py to /resources/development
+m the /pictures/winter.jpg to /gallery
+m the /videos/drama.mp4 to /media/movies
+mv the /images/spring.jpg to /photos/nature
+move the c:/documents/project.docx to /backup
+m the /movies/comedy.mp4 to /media/films
+mv the /images/sunset.png to /gallery
+m the /documents/notes.txt to /resources
+move the c:/home/reports/weekly.xlsx to /documents
+m the /pictures/beach.jpg to /gallery
+m the /tutorials/data_science.mp4 to /media
+mv the /pictures/mountains.jpg to /photos/travel
+move the c:/media/music/track.mp3 to /audio/songs
+m the /movies/horror.mp4 to /media/films
+mv the /images/lake.jpg to /photos/nature
+move the c:/projects/code/main.py to /development
+m the /pictures/cityscape.jpg to /gallery
+m the /videos/documentary.mp4 to /media/films
+mv the /pictures/flowers.jpg to /photos/nature
+move the c:/home/scripts/setup.sh to /configs
+m the /movies/romance.mp4 to /media/movies
+mv the /images/forest.png to /gallery
+move the c:/temp/data/input.csv to /resources
+search 'url' in C:/System/configurations/web_config.json 
+find 'debug' in /Network/settings/server_config.yaml 
+where 'key' in C:/Logs/access_logs.log 
+search the 'timeout' in /Projects/logs/error.log 
+find 'database' in C:/Users/Public/Documents/config.db 
+where 'server' in /Configs/cloud/server_details.yaml 
+search 'cache' in C:/ProgramData/settings/cache_config.ini 
+find 'timeout' in /Configs/network/proxy.json 
+where 'logfile' in C:/Users/Admin/Downloads/debug_logs.log 
+search the 'theme' in /Configs/app/ui_preferences.json 
+find 'region' in C:/System/locale/settings.json 
+where 'session_id' in /Configs/api/session_data.yaml 
+search 'admin' in C:/Users/Admin/AppData/temp/cache.json 
+find 'router' in C:/Network/devices/router_settings.ini
+search 'url' in C:/System/configurations/web_config.json
+find 'debug' in /Network/settings/server_config.yaml
+where 'key' in C:/Logs/access_logs.log
+search the 'timeout' in /Projects/logs/error.log
+find 'database' in C:/Users/Public/Documents/config.db
+where 'server' in /Configs/cloud/server_details.yaml
+search 'cache' in C:/ProgramData/settings/cache_config.ini
+find 'timeout' in /Configs/network/proxy.json
+where 'logfile' in C:/Users/Admin/Downloads/debug_logs.log
+search the 'theme' in /Configs/app/ui_preferences.json
+find 'region' in C:/System/locale/settings.json
+where 'session_id' in /Configs/api/session_data.yaml
+search 'admin' in C:/Users/Admin/AppData/temp/cache.json
+find 'router' in C:/Network/devices/router_settings.ini
+search 'port' in C:/System/configurations/network_config.json
+find 'version' in /Network/settings/app_config.yaml
+where 'token' in C:/Logs/authentication_logs.log
+search the 'retry' in /Projects/logs/connection.log
+find 'username' in C:/Users/Public/Documents/user_data.db
+where 'host' in /Configs/cloud/host_details.yaml
+search 'timeout' in C:/ProgramData/settings/timeout_config.ini
+find 'path' in /Configs/network/path.json
+where 'error' in C:/Users/Admin/Downloads/error_logs.log
+search the 'layout' in /Configs/app/layout_preferences.json
+find 'country' in C:/System/locale/country_settings.json
+where 'session' in /Configs/api/session_info.yaml
+search 'cache_size' in C:/Users/Admin/AppData/temp/cache_settings.json
+find 'gateway' in C:/Network/devices/gateway_settings.ini
+search 'protocol' in C:/System/configurations/protocol_config.json
+find 'timeout' in /Network/settings/timeout_config.yaml
+where 'client_id' in C:/Logs/client_logs.log
+search the 'version' in /Projects/logs/version.log
+find 'database_url' in C:/Users/Public/Documents/db_config.db
+where 'service' in /Configs/cloud/service_details.yaml
+search 'max_connections' in C:/ProgramData/settings/connection_config.ini
+find 'timeout' in /Configs/network/timeout.json
+where 'log_level' in C:/Users/Admin/Downloads/log_level.log
+search the 'color_scheme' in /Configs/app/color_preferences.json
+find 'language' in C:/System/locale/language_settings.json
+where 'session_key' in /Configs/api/session_keys.yaml
+search 'cache_timeout' in C:/Users/Admin/AppData/temp/cache_timeout.json
+find 'dns' in C:/Network/devices/dns_settings.ini
+m the /tutorials/python_basics.mp4 to /media
+mv the /pictures/desert.jpg to /gallery
+move the c:/projects/design/mockup.psd to /designs
+m the /movies/adventure.mp4 to /media/films
+mv the /images/waterfall.jpg to /photos/nature
+move the c:/home/logs/system.log to /backup/logs
+m the /videos/scifi.mp4 to /media/films
+mv the /pictures/rain.jpg to /photos/travel
+uz /backup/logs/system_errors.log
+zip the file report.docx
+z the folder /images/winter
+compress folder /users/guest/downloads
+unzip /archives/pictures.zip
+extract /projects/source/main.cpp
+uz /configs/archive/system_config.json
+zip the file project_plan.pdf
+z the folder /library/books/classics
+decompress folder /temp/cache
+unzip /media/videos.zip
+extract /projects/utils/helper.py
+uz /docs/reports/financial_summary.docx
+zip the file analysis_results.csv
+z the folder /media/photos/nature
+compress folder /admin/files
+unzip /archives/backup.zip
+extract /projects/tools/utility.js
+uz /files/backup/settings.xml
+zip the file plan_summary.txt
+z the folder /users/admin/music
+compress folder /media/resources/assets
+unzip /downloads/applications.zip
+extract /temp/files/document.pdf
+uz /configs/system/setup.yaml
+zip the file work_schedule.docx
+z the folder /pictures/summer
+compress folder /projects/demo
+unzip /media/data.zip
+extract /docs/templates/template.docx
+uz /configs/preferences/config.json
+create the app.js
+mk the file styles.scss
+mkdir /configs/security
+create the app.js
+make script.py
+create the main/configs/database
+create the main_script.java
+create the index.html
+mk the file config.json
+mkdir /assets/images
+create the utils/helper.js
+make data_processor.rb
+create the styles/main.css
+mk the file readme.md
+create the api/routes.js
+make app/config.yaml
+create the main.py
+mk the file script.sh
+mkdir /logs/error
+create the database/schema.sql
+make server.go
+create the config/settings.xml
+create the user/profile.json
+mk the file app.css
+mkdir /src/components
+create the services/authService.js
+make data_analysis.py
+create the assets/logo.png
+mk the file .env
+create the tests/test_app.js
+make main.go
+create the scripts/deploy.sh
+mk the file package-lock.json
+create the config/database.yml
+mkdir /public/uploads
+create the views/index.ejs
+make app.js
+create the middleware/logger.js
+mk the file styles/variables.scss
+create the controllers/userController.js
+make app/config.json
+create the models/userModel.js
+mk the file README.md
+create the migrations/20230101_create_users_table.js
+make server.js
+create the utils/fileUtils.py
+mk the file .gitignore
+create the assets/styles/main.scss
+mkdir /data/backups
+create the api/v1/user.js
+make app/config.js
+create the scripts/init.sh
+mk the file styles/theme.css
+create the tests/integration/test_user.js
+make app.py
+create the config/app_config.yaml
+mk the file index.ts
+create the services/emailService.js
+make data_export.rb
+create the assets/images/banner.jpg
+mk the file package.json
+create the logs/access.log
+mkdir /src/hooks
+create the components/Button.js
+make app/configuration.json
+create the scripts/cleanup.sh
+mk the file styles/reset.css
+create the views/dashboard.ejs
+make server/config.js
+create the utils/dateUtils.js
+mk the file .babelrc
+create the assets/fonts/Roboto-Regular.ttf
+mkdir /src/reducers
+create the reducers/userReducer.js
+make app/main.go
+create the tests/unit/test_userReducer.js
+mk the file styles/animations.scss
+create the api/v2/product.js
+make app/config.yaml
+create the scripts/start.sh
+mk the file styles/layout.css
+create the controllers/productController.js
+make app.js
+copy the c:/media/music/track1.mp3 to /audio/collection
+copy the c:/media/music/track2.wav to /audio/collection
+copy the c:/media/music/track3.flac to /audio/collection
+copy the c:/media/music/track4.aac to /audio/collection
+copy the c:/media/music/track5.ogg to /audio/collection
+cp the /videos/movies/action1.mp4 to /media/films
+cp the /videos/movies/action2.avi to /media/films
+cp the /videos/movies/action3.mov to /media/films
+cp the /videos/movies/action4.mkv to /media/films
+cp the /videos/movies/action5.wmv to /media/films
+c temp/data/summary1.txt to /resources/archives
+c temp/data/summary2.csv to /resources/archives
+c temp/data/summary3.json to /resources/archives
+c temp/data/summary4.xml to /resources/archives
+c temp/data/summary5.md to /resources/archives
+copy the c:/configs/server/settings1.xml to /configs/backup
+copy the c:/configs/server/settings2.yaml to /configs/backup
+copy the c:/configs/server/settings3.json to /configs/backup
+copy the c:/configs/server/settings4.ini to /configs/backup
+copy the c:/configs/server/settings5.properties to /configs/backup
+cp the /backup/system/logs/errors1.txt to /logs/archive
+cp the /backup/system/logs/errors2.log to /logs/archive
+cp the /backup/system/logs/errors3.csv to /logs/archive
+cp the /backup/system/logs/errors4.json to /logs/archive
+cp the /backup/system/logs/errors5.xml to /logs/archive
+c d:/workspace/models/output1.h5 to /resources/training
+c d:/workspace/models/output2.pt to /resources/training
+c d:/workspace/models/output3.onnx to /resources/training
+c d:/workspace/models/output4.pkl to /resources/training
+c d:/workspace/models/output5.tflite to /resources/training
+copy the c:/home/documents/reports/weekly1.docx to /reports/archive
+copy the c:/home/documents/reports/weekly2.pptx to /reports/archive
+copy the c:/home/documents/reports/weekly3.pdf to /reports/archive
+copy the c:/home/documents/reports/weekly4.txt to /reports/archive
+copy the c:/home/documents/reports/weekly5.odt to /reports/archive
+cp the /users/admin/photos/trip1.jpg to /gallery/vacation
+cp the /users/admin/photos/trip2.png to /gallery/vacation
+cp the /users/admin/photos/trip3.gif to /gallery/vacation
+cp the /users/admin/photos/trip4.bmp to /gallery/vacation
+cp the /users/admin/photos/trip5.tiff to /gallery/vacation
+c temp/logs/system1.log to /backup/logs
+c temp/logs/system2.log to /backup/logs
+c temp/logs/system3.log to /backup/logs
+c temp/logs/system4.log to /backup/logs
+c temp/logs/system5.log to /backup/logs
+copy the c:/resources/training/data1.json to /datasets/final
+copy the c:/resources/training/data2.csv to /datasets/final
+copy the c:/resources/training/data3.xml to /datasets/final
+copy the c:/resources/training/data4.yaml to /datasets/final
+copy the c:/resources/training/data5.txt to /datasets/final
+cp the /configs/templates/template1.docx to /library/templates
+cp the /configs/templates/template2.odt to /library/templates
+cp the /configs/templates/template3.pptx to /library/templates
+cp the /configs/templates/template4.xlsx to /library/templates
+cp the /configs/templates/template5.txt to /library/templates
+c d:/users/admin/projects/sample1 to /resources/examples
+c d:/users/admin/projects/sample2 to /resources/examples
+c d:/users/admin/projects/sample3 to /resources/examples
+c d:/users/admin/projects/sample4 to /resources/examples
+c d:/users/admin/projects/sample5 to /resources/examples
+copy the c:/images/screenshot1.png to /gallery/screenshots
+copy the c:/images/screenshot2.jpg to /gallery/screenshots
+copy the c:/images/screenshot3.gif to /gallery/screenshots
+copy the c:/images/screenshot4.bmp to /gallery/screenshots
+copy the c:/images/screenshot5.tiff to /gallery/screenshots
+copy the c:/downloads/music/album1.zip to /audio/archives

@@ -1,34 +1,34 @@
-wifi list 
-wifi status  
-wifi scan 
-my name  
-motivate me  
-motivate 
+wifi list
+wifi status
+wifi scan
+my name
+motivate me
+motivate
 help me
 ram
 ram check
 cpu
 gpu
-help   
-help me  
-motivation  
-shutdown  
-poweroff  
-restart  
-network speed   
-my ip  
-write reports/data_analysis.py  
-write code/scripts/main.java  
-write C:/Users/Guest/.ssh/keys.config  
-notepad tasks/overview.txt  
-notepad reports/finance/summary.csv  
-notepad draft/proposals/plan.csv  
-wifi  
-scan wifi  
-write to configs/system/default.json  
-notepad C:/Users/Admin/Desktop/notes.txt  
-notepad logs/errors/latest.log  
-write reports/daily_summary.docx  
-write code/implementation.py  
-notepad C:/Backup/settings_backup.ini  
+help
+help me
+motivation
+shutdown
+poweroff
+restart
+network speed
+my ip
+write reports/data_analysis.py
+write code/scripts/main.java
+write C:/Users/Guest/.ssh/keys.config
+notepad tasks/overview.txt
+notepad reports/finance/summary.csv
+notepad draft/proposals/plan.csv
+wifi
+scan wifi
+write to configs/system/default.json
+notepad C:/Users/Admin/Desktop/notes.txt
+notepad logs/errors/latest.log
+write reports/daily_summary.docx
+write code/implementation.py
+notepad C:/Backup/settings_backup.ini
 wifi
