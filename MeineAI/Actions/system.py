@@ -21,7 +21,7 @@ class System:
     def Time(self) -> None :
         date = dt.datetime.now().date()
         time = dt.datetime.now().time()
-        console.print(Panel(f'[color(197)]DATE : {date}\nTIME : {time}'),width=50,style='color(105)')
+        console.print(Panel(f'[color(197)]DATE : {date}\nTIME : {time}',expand=False),style='color(105)')
         
 
     
@@ -54,7 +54,7 @@ class System:
     
     def GetCurrentDir(self) -> None:
         path:Path = str(Path('.').resolve())
-        console.print(Panel(f'[#F2F2F2]CURRENT DIRECTORY: {path}',width=len(path)+70),style='#2196F3')
+        console.print(Panel(f'[#F2F2F2]CURRENT DIRECTORY: {path}',expand=False),style='#2196F3')
 
 
     def CD(self, Destination: Path) -> None:
@@ -100,7 +100,7 @@ class System:
 
     
     def HomeDir(self):
-        console.print(Panel(f'Home Directory :  {Path.home()}',width=50,style='color(105)'))
+        console.print(Panel(f'Home Directory :  {Path.home()}',expand=False,style='color(105)'))
 
     def RAMInfo(self):
         memory = psutil.virtual_memory()
@@ -125,7 +125,7 @@ class System:
         Panel(f"[cyan]Total Memory      : {other.SizeHelper(Total)}\n"+
                             f"[color(167)]Memory Available  : {other.SizeHelper(Avail)}\n"+
                             f"[color(197)]Memory Used       : {other.SizeHelper(Used)}",width=70))
-        console.print(Panel(panel_group,width=70,style='color(105)'))
+        console.print(Panel(panel_group,expand=False,style='color(105)'))
 
     def SYSTEM(self):
         systemtable = Table(show_header=False,show_lines=True)
@@ -135,7 +135,7 @@ class System:
         systemtable.add_row("Version", platform.version())
         systemtable.add_row("Machine", platform.machine())
         systemtable.add_row("Processor", platform.processor())
-        console.print(Panel(systemtable,width=systemtable._measure_column(console)))
+        console.print(Panel(systemtable,border_style="blue",expand=False,title="SYSTEM INFO"))
 
     def Battery(self):
         battery = psutil.sensors_battery()
@@ -277,4 +277,4 @@ class System:
             print("  sudo pacman -S networkmanager    # For Arch Linux")
 
 a = System()
-a.SYSTEM()
+a.RAMInfo()
