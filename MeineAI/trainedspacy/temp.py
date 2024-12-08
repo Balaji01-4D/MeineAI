@@ -3,7 +3,7 @@
 import spacy
 from spacy.tokens import DocBin
 # List of file paths to your .spacy files
-spacy_files = ["train_data.spacy", "train.spacy", "annotations.spacy"]
+spacy_files = [ "/home/balaji/MeineAI/MeineAI/trainedspacy/allnotseen.spacy", "/home/balaji/MeineAI/MeineAI/trainedspacy/final.spacy"]
 
 
 # Create a new DocBin object to store combined data
@@ -17,6 +17,6 @@ for file_path in spacy_files:
         for doc in doc_bin.get_docs(nlp.vocab):
             merged_doc_bin.add(doc)
 
-merged_doc_bin.to_disk('final.spacy')
+merged_doc_bin.to_disk('finalpro.spacy')
 
 print("Merging complete. The merged data is saved in 'merged_file.spacy'.")

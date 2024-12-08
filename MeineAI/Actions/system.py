@@ -51,7 +51,8 @@ class System:
         storage.add_row(f'[#2196F3]FREE',other.SizeHelper(free),other.SizeHelper(Swap.free))
         panelcollections = Group(Panel('[#2196F3] STORAGE',style='#A6A6C3'),Panel(storage,style='#FFFFFF'),Panel(Bar,style='#A6A6C3'))
         console.print(Panel(panelcollections,style='#1E1E2C',width=60))
-    
+
+
     def GetCurrentDir(self) -> None:
         path:Path = str(Path('.').resolve())
         console.print(Panel(f'[#F2F2F2]CURRENT DIRECTORY: {path}',expand=False),style='#2196F3')
